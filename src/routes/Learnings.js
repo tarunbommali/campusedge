@@ -1,57 +1,63 @@
 import React, { useState } from 'react';
 import ResourceList from '../components/ResourceList';
-import { resourcesList } from '../utils/resources';
-import { IoMdSearch } from "react-icons/io";
-import { NAVITEM_TABS } from '../utils/resources';
+import { FilterOptions, resourcesList } from '../utils/resources';
+import { IoMdSearch } from 'react-icons/io';
+import { CiFilter } from 'react-icons/ci';
 
 const Learnings = () => {
-  const [activeTab, setActiveTab] = useState('all');
+  const [activeFilter, setActiveFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Filter resources based on active tab and search query
+  // Filter resources based on active filter and search query
   const filteredResources = resourcesList.filter((resource) => {
-    const matchesTab = activeTab === 'all' || resource.course_type === activeTab;
+    const matchesFilter = activeFilter === 'all' || resource.course_type === activeFilter;
     const matchesSearch = resource.course_name
       ?.toLowerCase()
       .includes(searchQuery.toLowerCase());
-    return matchesTab && matchesSearch;
+    return matchesFilter && matchesSearch;
   });
 
-  return (
-    <div className='w-full'>
-      {/* Tabs for filtering */}
-      <div className='flex justify-between items-center text-md py-4 font-thin my-4 mb-2'>
-        <ul className='flex'>
-          {NAVITEM_TABS.map((item) => (
-            <li 
-              key={item.navId}
-              onClick={() => setActiveTab(item.navId)} 
-              className={`cursor-pointer text-lg font-semibold px-4 py-2 
-                ${activeTab === item.navId 
-                  ? 'underline decoration-2 decoration-[#3b82f6] underline-offset-4' 
-                  : 'text-gray-700 hover:text-[#4a4a4b]'}`
-              }
-            >
-              {item.label}
-            </li>
-          ))}
-        </ul>
+  // Reset Filters
+  const handleReset = () => {
+    setActiveFilter('all');
+    setSearchQuery('');
+  };
 
+  return (
+    <div className="w-full">
+      {/* Filter Select Dropdown and Search Input */}
+      <div className="flex justify-between items-center text-md py-4 font-thin my-4 mb-2">
         {/* Search Input */}
-        <div className='flex items-center text-md font-thin border-2 border-[#e5e7eb]'>
-          <input 
-            type='search' 
-            value={searchQuery} 
-            onChange={(e) => setSearchQuery(e.target.value)} 
-            className='border-none px-2 outline-none' 
-            placeholder='Search' 
+        <div className="flex items-center text-md font-thin border-2 border-[#e5e7eb] bg-[#ffffff] px-1 rounded-sm">
+          <input
+            type="search"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="border-none p-2 outline-none"
+            placeholder="Search"
           />
-          <IoMdSearch className='bg-white'/>
+          <IoMdSearch className="bg-white" />
+        </div>
+
+        {/* Filter Select Dropdown */}
+        <div className="flex items-center justify-center p-2 border-2 border-[#e5e7eb] bg-[#ffffff]">
+          <CiFilter />
+          <select
+            value={activeFilter}
+            onChange={(e) => setActiveFilter(e.target.value)}
+            className="border-none pr-2 rounded-md outline-none"
+          >
+            {FilterOptions.map((option) => (
+              <option key={option.navId} value={option.navId}>
+                {option.label}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
 
       {/* Resource List */}
-      <ResourceList resourcesList={filteredResources} />
+      <ResourceList resourcesList={filteredResources} onReset={handleReset} />
     </div>
   );
 };

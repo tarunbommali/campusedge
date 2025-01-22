@@ -1,39 +1,37 @@
 import { useState } from "react";
 import { ROADMAPS_LIST } from "../utils/roadmapConstants";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 const RoadmapComponent = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
-
-  const toggleCollapse = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
+  const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <div className="pb-6 px-2 w-full">
-      <h1 className="text-xl font-semibold mb-6">Frontend Developer </h1>
-      {ROADMAPS_LIST.map((section, index) => (
-        <div key={index} className="border rounded-lg mb-4">
-          {/* Entire header is clickable */}
-          <button 
-            onClick={() => toggleCollapse(index)} 
-            className="w-full flex justify-between p-4 bg-blue-500 text-white font-semibold rounded-sm"
+    <div className="flex w-full">
+      {/* Sidebar for Vertical Tabs */}
+      <div className="w-1/4 bg-gray-100 border-r">
+        {ROADMAPS_LIST.map((section, index) => (
+          <button
+            key={index}
+            onClick={() => setActiveTab(index)}
+            className={`w-full text-left px-4 py-3 border-b font-semibold ${
+              activeTab === index ? "bg-blue-500 text-white" : "bg-white text-gray-700"
+            }`}
           >
-            <span>{section.title}</span>
-            {activeIndex === index ? <FaChevronUp /> : <FaChevronDown />}
+            {section.title}
           </button>
+        ))}
+      </div>
 
-          {activeIndex === index && (
-            <ul className="p-4 bg-gray-50">
-              {section.topics.map((topic, idx) => (
-                <li key={idx} className="py-2 text-gray-700">
-                  {topic}
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-      ))}
+      {/* Content for Selected Tab */}
+      <div className="w-3/4 p-6">
+        <h2 className="text-xl font-bold mb-4">{ROADMAPS_LIST[activeTab].title}</h2>
+        <ul className="list-disc pl-6">
+          {ROADMAPS_LIST[activeTab].technologies.map((technology, idx) => (
+            <li key={idx} className="py-2 text-gray-700">
+              {technology}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

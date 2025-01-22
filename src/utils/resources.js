@@ -1,9 +1,10 @@
 // resources.js
 
-export const NAVITEM_TABS = [
+export const FilterOptions = [
   { navId: 'all', label: 'All Resources' },
   { navId: 'Premium', label: 'Premium Resources' },
   { navId: 'Free', label: 'Free Resources' },
+  {navId:"Certification", label:"Certification"}
 ];
 
 
