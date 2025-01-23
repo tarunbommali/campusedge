@@ -10,7 +10,7 @@ const Header = () => {
         <p className="text-4xl  font-semibold">
         Campus Edge
         </p>
-        <p className="font-thin">Find. Apply. Succeed. Your IT Dream Job Awaits.</p>
+        <p className="font-thin">Navigate Your Way to IT Success!</p>
       </div>
       <ul className="flex flex-row items-center">
         {NAV_ITEMS.map((item, index) => (

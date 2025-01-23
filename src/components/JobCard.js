@@ -8,7 +8,7 @@ const JobCard = ({ jobDetails }) => {
   const { jobRole, company, experience, annualPackage, skillsRequired, description, postedDate, } = jobDetails;
   console.log(jobDetails);
   return (
-    <div className="border p-4 mb-4 rounded-md shadow-md">
+    <div className="border border-[#dadce0] p-4 mb-4 rounded-lg">
       <div className="flex items-center justify-between">
         <div>
           <h3 className="text-xl font-semibold">{jobRole}</h3>

@@ -4,9 +4,9 @@ export const NAV_ITEMS = [
   { path: "/companies", link: "Companies" },
   { path: "/roadmaps", link: "Roadmaps" },
   { path: "/learnings", link: "Learnings" },
+  { path: "/interviewPrep", link: "InterviewPrep" },
   { path: "/about-us", link: "About Us" },
 ];
-
 
 export const CompaniesTabs = [
   {
@@ -108,7 +108,8 @@ export const CompaniesTabs = [
   {
     id: 7,
     label: "E-Commerce",
-    description: "Online retail platforms for buying and selling goods/services",
+    description:
+      "Online retail platforms for buying and selling goods/services",
     path: "/companies/e-commerce",
     content: `
 **Definition:** Companies that operate platforms for buying and selling goods/services online.
@@ -168,7 +169,8 @@ export const CompaniesTabs = [
   {
     id: 11,
     label: "AI and ML",
-    description: "Companies leveraging artificial intelligence and machine learning",
+    description:
+      "Companies leveraging artificial intelligence and machine learning",
     path: "/companies/ai-ml",
     content: `
 **Definition:** Companies that leverage artificial intelligence and machine learning technologies.
@@ -211,7 +213,6 @@ export const CompaniesTabs = [
     `,
   },
 ];
-
 
 export const ABOUT_JNTUGV = [
   "JNTU College of Engineering, Vizianagaram established in 2007 as a constituent college of JNTU Hyderabad.",

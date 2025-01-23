@@ -11,6 +11,8 @@ import Footer from './components/Footer'
 import Roadmaps from './routes/Roadmaps'
 import Learnings from './routes/Learnings'
 import Companies from './routes/Companies'
+import { InterviewPrep } from './routes/InterviewPrep'
+
 
 const AppLayout = () => {
   return (
@@ -35,7 +37,8 @@ export const appRouter = createBrowserRouter([
       {path:"/helpdesk", element: <Helpdesk/>},
       {path:"/jobs", element:<Jobs/>},
       {path:"/companies", element:<Companies/>},
-      {path:"/learnings", element:<Learnings/>}
+      {path:"/learnings", element:<Learnings/>},
+      {path:"/interviewPrep", element:<InterviewPrep/>}
 
     ]
   }
