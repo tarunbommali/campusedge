@@ -1,9 +1,9 @@
 import React from "react";
 import JobCard from "./JobCard";
-import { JOBS_LIST } from "../utils/jobsData";
 
-const JobList = () => {
-  console.log(JobList);
+
+const JobList = ({JOBS_LIST}) => {
+  
   return (
     <ul>
       {JOBS_LIST.map((item, index) => (
