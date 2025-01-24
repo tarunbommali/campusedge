@@ -1,6 +1,5 @@
 export const NAV_ITEMS = [
   { path: "/", link: "Home" },
-  { path: "/jobs", link: "Jobs" },
   { path: "/companies", link: "Companies" },
   { path: "/roadmaps", link: "Roadmaps" },
   { path: "/learnings", link: "Learnings" },
