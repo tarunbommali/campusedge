@@ -533,7 +533,7 @@ export const InterviewPrepList = [
         image: "Na",
         question: "What are template literals in JavaScript?",
         answer:
-          "Template literals are string literals enclosed by backticks (`) that allow embedded expressions using ${expression}.",
+          "Template literals are string literals enclosed by backticks  that allow embedded expressions using ${expression.",
       },
       {
         id: "js-15",
@@ -2304,7 +2304,7 @@ export const InterviewPrepList = [
         link: "Na",
         image: "Na",
         question: "How do you configure a Webpack loader for handling CSS files?",
-        answer: "To handle CSS files with Webpack, you need to install loaders like `style-loader` and `css-loader`. You can configure them in Webpack’s module.rules array, like so: `{ test: /\.css$/, use: ['style-loader', 'css-loader'] }`."
+        answer: "To handle CSS files with Webpack."
       },
       {
         id: "webpack-15",
