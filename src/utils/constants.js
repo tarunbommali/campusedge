@@ -1,10 +1,12 @@
+
 export const NAV_ITEMS = [
   { path: "/", link: "Home" },
-  { path: "/companies", link: "Companies" },
   { path: "/roadmaps", link: "Roadmaps" },
   { path: "/learnings", link: "Learnings" },
   { path: "/interviewPrep", link: "InterviewPrep" },
+  {path:"/mock-interview", link:"Mock Interview"},
   { path: "/about-us", link: "About Us" },
+
 ];
 
 export const CompaniesTabs = [
@@ -14,14 +16,8 @@ export const CompaniesTabs = [
     description: "Multinational",
     path: "/companies/mncs",
     content: `
-**Definition:** Companies that operate in multiple countries and have a large global presence.
+Companies that operate in multiple countries and have a large global presence.
 
-**Examples:** Google, Microsoft, AWS, IBM, Oracle.
-
-**Characteristics:**
-- High-paying jobs with global exposure.
-- Structured processes and clear roles.
-- Opportunities to work on large-scale projects.
     `,
   },
   {
@@ -30,14 +26,7 @@ export const CompaniesTabs = [
     description: "Innovative early-stage",
     path: "/companies/startups",
     content: `
-**Definition:** Early-stage companies focusing on innovation and rapid growth.
-
-**Examples:** Zomato, Swiggy, CRED, Byju’s, Meesho.
-
-**Characteristics:**
-- Fast-paced and dynamic environment.
-- Opportunities to work on innovative projects from scratch.
-- Potential for high growth but with risks.
+Early-stage companies focusing on innovation and rapid growth.
     `,
   },
   {
@@ -46,14 +35,7 @@ export const CompaniesTabs = [
     description: "Companies developing and selling their software products",
     path: "/companies/product-based",
     content: `
-**Definition:** Companies that develop and sell their own software products.
-
-**Examples:** Adobe, Salesforce, Zoom, Canva.
-
-**Characteristics:**
-- Focus on building quality products.
-- Engineers often work on a single product for a long time.
-- Strong emphasis on customer feedback and improvements.
+Companies that develop and sell their own software products.
     `,
   },
   {
@@ -62,14 +44,7 @@ export const CompaniesTabs = [
     description: "Companies providing IT services to clients",
     path: "/companies/service-based",
     content: `
-**Definition:** Companies that provide IT services to clients (e.g., software development, testing, consulting).
-
-**Examples:** TCS, Infosys, Wipro, HCL Technologies, Cognizant.
-
-**Characteristics:**
-- Clients may be from various industries.
-- Projects are typically time-bound and client-specific.
-- Job roles may involve frequent client interaction.
+Companies that provide IT services to clients (e.g., software development, testing, consulting).
     `,
   },
   {
@@ -78,14 +53,7 @@ export const CompaniesTabs = [
     description: "Companies focusing on financial technology innovation",
     path: "/companies/fintech",
     content: `
-**Definition:** Companies that leverage technology to provide financial services.
-
-**Examples:** Paytm, Razorpay, PhonePe, Stripe, Zerodha.
-
-**Characteristics:**
-- Blend of technology and financial knowledge.
-- Focus on secure and scalable solutions.
-- Opportunities to work in cutting-edge technologies like blockchain.
+Companies that leverage technology to provide financial services.
     `,
   },
   {
@@ -94,15 +62,8 @@ export const CompaniesTabs = [
     description: "Companies revolutionizing education using technology",
     path: "/companies/edtech",
     content: `
-**Definition:** Companies that use technology to revolutionize education and learning.
-
-**Examples:** Coursera, Udemy, Byju's, Unacademy, Khan Academy.
-
-**Characteristics:**
-- Focus on user-friendly platforms.
-- Often involve gamification and analytics.
-- Contribution to education and societal impact.
-    `,
+Companies that use technology to revolutionize education and learning.
+ `,
   },
   {
     id: 7,
@@ -111,13 +72,7 @@ export const CompaniesTabs = [
       "Online retail platforms for buying and selling goods/services",
     path: "/companies/e-commerce",
     content: `
-**Definition:** Companies that operate platforms for buying and selling goods/services online.
-
-**Examples:** Amazon, Flipkart, Myntra, Snapdeal, BigBasket.
-
-<b>Characteristics:</b>
-- Focus on customer experience and scalability.
-- Opportunities to work in areas like UI/UX, supply chain, and data analysis.
+Companies that operate platforms for buying and selling goods/services online.
     `,
   },
   {
@@ -126,14 +81,8 @@ export const CompaniesTabs = [
     description: "Companies specializing in video game development",
     path: "/companies/gaming",
     content: `
-**Definition:** Companies that develop video games, VR/AR applications, and gamification solutions.
-
-**Examples:** Ubisoft, EA Sports, Rockstar Games, Zynga, Niantic.
-
-**Characteristics:**
-- Opportunities in game development, design, and AI.
-- Cutting-edge work in VR/AR technologies.
-    `,
+Companies that develop video games, VR/AR applications, and gamification solutions.
+`,
   },
   {
     id: 9,
@@ -141,13 +90,7 @@ export const CompaniesTabs = [
     description: "Companies offering cloud infrastructure and solutions",
     path: "/companies/cloud-based",
     content: `
-**Definition:** Companies offering cloud infrastructure, platforms, and software solutions.
-
-**Examples:** AWS, Google Cloud, Microsoft Azure, DigitalOcean, Snowflake.
-
-**Characteristics:**
-- Focus on scalability, security, and performance.
-- Jobs often require cloud certifications and expertise.
+Companies offering cloud infrastructure, platforms, and software solutions.
     `,
   },
   {
@@ -156,14 +99,8 @@ export const CompaniesTabs = [
     description: "Companies focused on securing digital assets",
     path: "/companies/cybersecurity",
     content: `
-**Definition:** Companies specializing in securing digital assets and infrastructure.
-
-**Examples:** Palo Alto Networks, Fortinet, NortonLifeLock, McAfee, Check Point.
-
-**Characteristics:**
-- Work involves threat analysis and prevention.
-- High demand for ethical hackers and security engineers.
-    `,
+Companies specializing in securing digital assets and infrastructure.
+ `,
   },
   {
     id: 11,
@@ -172,13 +109,7 @@ export const CompaniesTabs = [
       "Companies leveraging artificial intelligence and machine learning",
     path: "/companies/ai-ml",
     content: `
-**Definition:** Companies that leverage artificial intelligence and machine learning technologies.
-
-**Examples:** OpenAI, DeepMind, NVIDIA, Hugging Face, SenseTime.
-
-**Characteristics:**
-- Focus on automation, predictive analytics, and innovation.
-- Opportunities to work on futuristic technologies.
+Companies that leverage artificial intelligence and machine learning technologies.
     `,
   },
   {
@@ -187,13 +118,7 @@ export const CompaniesTabs = [
     description: "Companies improving healthcare solutions using technology",
     path: "/companies/healthtech",
     content: `
-**Definition:** Companies using technology to improve healthcare solutions.
-
-**Examples:** Practo, Pharmeasy, 1mg, HealthifyMe, Medlife.
-
-**Characteristics:**
-- Projects often include wearable technology, AI in diagnostics, and telemedicine.
-- Focus on societal impact and regulatory compliance.
+Companies using technology to improve healthcare solutions.
     `,
   },
   {
@@ -202,13 +127,7 @@ export const CompaniesTabs = [
     description: "Companies optimizing supply chains using technology",
     path: "/companies/logistics",
     content: `
-**Definition:** Companies optimizing logistics and supply chain through technology.
-
-**Examples:** Delhivery, FedEx Logistics, BlueDart, DHL Supply Chain, Rivigo.
-
-**Characteristics:**
-- Focus on efficiency and real-time tracking.
-- High involvement in IoT and AI for optimization.
+Companies optimizing logistics and supply chain through technology.
     `,
   },
 ];
