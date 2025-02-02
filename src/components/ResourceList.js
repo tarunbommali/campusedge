@@ -5,7 +5,7 @@ const ResourceList = ({ resourcesList, onReset }) => {
   return (
     <>
       {resourcesList.length ? (
-        <ul className="flex flex-wrap">
+        <ul className="flex flex-wrap justify-center md:justify-between">
           {resourcesList.map((resource, index) => (
             <ResourceCard key={index} resource={resource} />
           ))}

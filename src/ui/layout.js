@@ -5,10 +5,10 @@ export const Button = ({ children, ...props }) => (
   );
   
   export const Input = (props) => (
-    <input className="border p-2 m-2 rounded w-full" {...props} />
+    <input className="border p-2 m-2  bg-white rounded w-full" {...props} />
   );
   
   export const Textarea = (props) => (
-    <textarea className="border p-2 m-2 rounded w-full" {...props} />
+    <textarea className="border p-2 m-2 bg-white rounded w-full" {...props} />
   );
   

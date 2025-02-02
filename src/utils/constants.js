@@ -4,133 +4,105 @@ export const NAV_ITEMS = [
   { path: "/roadmaps", link: "Roadmaps" },
   { path: "/learnings", link: "Learnings" },
   { path: "/interviewPrep", link: "InterviewPrep" },
-  {path:"/mock-interview", link:"Mock Interview"},
+  {path:"/ai-interview", link:"AI Interview"},
   { path: "/about-us", link: "About Us" },
 
 ];
 
-export const CompaniesTabs = [
+export const CompaniesTypes = [
   {
     id: 1,
     label: "MNCs",
     description: "Multinational",
     path: "/companies/mncs",
-    content: `
-Companies that operate in multiple countries and have a large global presence.
-
-    `,
+    content: "Companies that operate in multiple countries and have a large global presence.",
   },
   {
     id: 2,
     label: "Startups",
     description: "Innovative early-stage",
     path: "/companies/startups",
-    content: `
-Early-stage companies focusing on innovation and rapid growth.
-    `,
+    content: "Early-stage companies focusing on innovation and rapid growth.",
   },
   {
     id: 3,
     label: "Product-Based",
     description: "Companies developing and selling their software products",
     path: "/companies/product-based",
-    content: `
-Companies that develop and sell their own software products.
-    `,
+    content: "Companies that develop and sell their own software products.",
   },
   {
     id: 4,
     label: "Service-Based",
     description: "Companies providing IT services to clients",
     path: "/companies/service-based",
-    content: `
-Companies that provide IT services to clients (e.g., software development, testing, consulting).
-    `,
+    content: "Companies that provide IT services to clients (e.g., software development, testing, consulting).",
   },
   {
     id: 5,
     label: "FinTech",
     description: "Companies focusing on financial technology innovation",
     path: "/companies/fintech",
-    content: `
-Companies that leverage technology to provide financial services.
-    `,
+    content: "Companies that leverage technology to provide financial services.",
   },
   {
     id: 6,
     label: "EdTech",
     description: "Companies revolutionizing education using technology",
     path: "/companies/edtech",
-    content: `
-Companies that use technology to revolutionize education and learning.
- `,
+    content: "Companies that use technology to revolutionize education and learning.",
   },
   {
     id: 7,
     label: "E-Commerce",
-    description:
-      "Online retail platforms for buying and selling goods/services",
+    description: "Online retail platforms for buying and selling goods/services",
     path: "/companies/e-commerce",
-    content: `
-Companies that operate platforms for buying and selling goods/services online.
-    `,
+    content: "Companies that operate platforms for buying and selling goods/services online.",
   },
   {
     id: 8,
     label: "Gaming",
     description: "Companies specializing in video game development",
     path: "/companies/gaming",
-    content: `
-Companies that develop video games, VR/AR applications, and gamification solutions.
-`,
+    content: "Companies that develop video games, VR/AR applications, and gamification solutions.",
   },
   {
     id: 9,
     label: "Cloud-Based",
     description: "Companies offering cloud infrastructure and solutions",
     path: "/companies/cloud-based",
-    content: `
-Companies offering cloud infrastructure, platforms, and software solutions.
-    `,
+    content: "Companies offering cloud infrastructure, platforms, and software solutions.",
   },
   {
     id: 10,
     label: "Cybersecurity",
     description: "Companies focused on securing digital assets",
     path: "/companies/cybersecurity",
-    content: `
-Companies specializing in securing digital assets and infrastructure.
- `,
+    content: "Companies specializing in securing digital assets and infrastructure.",
   },
   {
     id: 11,
     label: "AI and ML",
-    description:
-      "Companies leveraging artificial intelligence and machine learning",
+    description: "Companies leveraging artificial intelligence and machine learning",
     path: "/companies/ai-ml",
-    content: `
-Companies that leverage artificial intelligence and machine learning technologies.
-    `,
+    content: "Companies that leverage artificial intelligence and machine learning technologies.",
   },
   {
     id: 12,
     label: "HealthTech",
     description: "Companies improving healthcare solutions using technology",
     path: "/companies/healthtech",
-    content: `
-Companies using technology to improve healthcare solutions.
-    `,
+    content: "Companies using technology to improve healthcare solutions.",
   },
   {
     id: 13,
     label: "Logistics and Supply Chain",
     description: "Companies optimizing supply chains using technology",
     path: "/companies/logistics",
-    content: `
-Companies optimizing logistics and supply chain through technology.
-    `,
+    content: "Companies optimizing logistics and supply chain through technology.",
   },
 ];
+
 
 export const ABOUT_JNTUGV = [
   "JNTU College of Engineering, Vizianagaram established in 2007 as a constituent college of JNTU Hyderabad.",

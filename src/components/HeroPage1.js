@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
+import { loadSlim } from "@tsparticles/slim";
 
 const HeroPage1 = () => {
   const [init, setInit] = useState(false);
@@ -13,48 +13,29 @@ const HeroPage1 = () => {
     });
   }, []);
 
-  const particlesLoaded = (container) => {
-    console.log(container);
-  };
-
   const options = useMemo(
     () => ({
       background: {
         color: {
-          value: "#f8f9fa",
+          value: "transparent", // Transparent background
         },
       },
       fpsLimit: 120,
       fullScreen: {
         enable: false,
-        zIndex: -1,
       },
-
       interactivity: {
         events: {
-          onClick: {
-            enable: true,
-            mode: "push",
-          },
-          onHover: {
-            enable: true,
-            mode: "repulse",
-          },
+          onClick: { enable: true, mode: "push" },
+          onHover: { enable: true, mode: "repulse" },
         },
         modes: {
-          push: {
-            quantity: 4,
-          },
-          repulse: {
-            distance: 200,
-            duration: 0.4,
-          },
+          push: { quantity: 4 },
+          repulse: { distance: 200, duration: 0.4 },
         },
       },
       particles: {
-        color: {
-          value: "#3b82f6",
-        },
+        color: { value: "#3b82f6" },
         links: {
           color: "#3b82f6",
           distance: 150,
@@ -63,46 +44,36 @@ const HeroPage1 = () => {
           width: 1,
         },
         move: {
-          direction: "none",
           enable: true,
-          outModes: {
-            default: "bounce",
-          },
-          random: false,
-          speed: 6,
-          straight: false,
+          speed: 2,
+          outModes: { default: "out" },
         },
         number: {
-          density: {
-            enable: true,
-          },
+          density: { enable: true },
           value: 80,
         },
-        opacity: {
-          value: 0.5,
-        },
-        shape: {
-          type: "circle",
-        },
-        size: {
-          value: { min: 1, max: 5 },
-        },
+        opacity: { value: 0.5 },
+        shape: { type: "circle" },
+        size: { value: { min: 1, max: 5 } },
       },
       detectRetina: true,
     }),
     []
   );
 
-  if (init) {
-    return (
-      <Particles
-        id="tsparticles"
-        particlesLoaded={particlesLoaded}
-        options={options}
-      />
-    );
-  }
+  if (!init) return null;
 
-  return <></>;
+  return (
+    <div className="relative w-full px-20 h-screen flex justify-center items-center bg-gray-900">
+      {/* Particle Background */}
+      <Particles id="tsparticles" className="absolute inset-0" options={options} />
+
+      {/* Text Overlay (Particles Move Over This) */}
+      <h1 className="absolute text-[#324773] select-none px-20 text-4xl md:text-6xl font-bold text-center mix-blend-screen">
+        Information Technology - Excellence in Knowledge & Innovation
+      </h1>
+    </div>
+  );
 };
+
 export default HeroPage1;

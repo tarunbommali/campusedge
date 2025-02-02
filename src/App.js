@@ -9,7 +9,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import Roadmaps from './routes/Roadmaps'
 import Learnings from './routes/Learnings'
-import { InterviewPrep } from './routes/InterviewPrep'
+import InterviewPrep from './routes/InterviewPrep'
 import InterviewApp from './routes/InterviewApp'
  
 
@@ -17,7 +17,7 @@ const AppLayout = () => {
   return (
     <div className='bg-[#f8f9fa]  '>
       <Header/>
-      <div className='min-h-[100vh] px-48'>
+      <div className='min-h-[100vh]'>
         <Outlet/>
       </div>
       <Footer/>
@@ -36,7 +36,7 @@ export const appRouter = createBrowserRouter([
       {path:"/helpdesk", element: <Helpdesk/>},
       {path:"/learnings", element:<Learnings/>},
       {path:"/interviewPrep", element:<InterviewPrep/>},
-      {path:"/mock-interview" , element:<InterviewApp/>}
+      {path:"/ai-interview" , element:<InterviewApp/>}
 
     ]
   }
