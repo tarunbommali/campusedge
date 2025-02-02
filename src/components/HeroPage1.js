@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
+import { Shimmer } from 'react-shimmer';
 
 const HeroPage1 = () => {
   const [init, setInit] = useState(false);
@@ -35,9 +36,9 @@ const HeroPage1 = () => {
         },
       },
       particles: {
-        color: { value: "#3b82f6" },
+        color: { value: "#ffffff" },
         links: {
-          color: "#3b82f6",
+          color: "#ffffff",
           distance: 150,
           enable: true,
           opacity: 0.5,
@@ -61,17 +62,42 @@ const HeroPage1 = () => {
     []
   );
 
-  if (!init) return null;
-
   return (
     <div className="relative w-full px-20 h-screen flex justify-center items-center bg-gray-900">
-      {/* Particle Background */}
-      <Particles id="tsparticles" className="absolute inset-0" options={options} />
+      {/* Shimmer Effect Placeholder */}
+      {!init && (
+        <Shimmer
+          width="100%"
+          height="100%"
+          style={{ position: "absolute", top: 0, left: 0 }}
+        />
+      )}
 
-      {/* Text Overlay (Particles Move Over This) */}
-      <h1 className="absolute text-[#324773] select-none px-20 text-4xl md:text-6xl font-bold text-center mix-blend-screen">
-        Information Technology - Excellence in Knowledge & Innovation
-      </h1>
+      {/* Particle Background */}
+      {init && (
+        <Particles
+          id="tsparticles"
+          className="absolute inset-0"
+          options={options}
+        />
+      )}
+
+      {/* Text Overlay */}
+      <div className="absolute select-none px-20 text-4xl md:text-6xl font-bold text-center mix-blend-screen">
+        <div className="hero flex items-center min-h-screen">
+          <div className="hero-content flex-col lg:flex-row-reverse">
+            <img
+              alt="hero_img"
+              src="https://img.freepik.com/premium-photo/3d-rendering-robot-artificial-intelligence-black-background-futuristic-technology-robot_844516-420.jpg"
+              className="max-w-sm rounded-lg shadow-2xl"
+            />
+            <div className="flex flex-col text-left">
+              <h1 className="text-5xl font-bold">Information Technology</h1>
+              <p className="py-6">Excellence in Knowledge & Innovation</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

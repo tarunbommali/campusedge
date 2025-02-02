@@ -1,77 +1,15 @@
 import React, { useState } from "react";
 
 import {
-  ABOUT_JNTUGV,
-  VISION_JNTUGV,
-  MISSION_JNTUGV,
   ABOUT_US_NAV_ITEMS,
   DEPARTMENT_DETAILS,
-  WEBSITE_DETAILS,
+  ABOUT_FAQ_LIST,
 } from "../utils/constants";
-
-const renderUniversityDetails = () => (
-  <>
-    <div className="px-6 py-4">
-      <h2 className="text-2xl font-semibold mb-4">About</h2>
-      <ul className="list-disc pl-6 space-y-2">
-        {ABOUT_JNTUGV.map((item, index) => (
-          <li key={index} className="text-lg text-gray-700">
-            {item}
-          </li>
-        ))}
-      </ul>
-    </div>
-    <div className="px-6 py-4">
-      <h2 className="text-2xl font-semibold mb-4">Vision</h2>
-      <ul className="list-disc pl-6 space-y-2">
-        {VISION_JNTUGV.map((item, index) => (
-          <li key={index} className="text-lg text-gray-700">
-            {item}
-          </li>
-        ))}
-      </ul>
-    </div>
-    <div className="px-6 py-4">
-      <h2 className="text-2xl font-semibold mb-4">Mission</h2>
-      <ul className="list-disc pl-6 space-y-2">
-        {MISSION_JNTUGV.map((item, index) => (
-          <li key={index} className="text-lg text-gray-700">
-            {item}
-          </li>
-        ))}
-      </ul>
-    </div>
-  </>
-);
-
-const renderDepartmentDetails = () => (
-  <ul className="px-6 py-4 list-disc space-y-2">
-    {DEPARTMENT_DETAILS.map((item, index) => (
-      <li key={index} className="text-lg text-gray-700">
-        {item}
-      </li>
-    ))}
-  </ul>
-);
-
-const renderWebsiteDetails = () => (
-  <ul className="px-6 py-4 list-disc space-y-2">
-    {WEBSITE_DETAILS.map((item, index) => (
-      <li key={index} className="text-lg text-gray-700">
-        {item}
-      </li>
-    ))}
-  </ul>
-);
-
-const renderAboutWebsite = () => (
-  <div className="flex items-center">
-    <h1 className="text-lg">
-      Empowering university students with roadmaps, resources, and connections.
-      Build your career with Campus Edge 🚀.
-    </h1>
-  </div>
-);
+import UniversityDetails from "../components/about/UniversityDetails";
+import DepartmentDetails from "../components/about/DepartmentDetails";
+import FaqList from "../components/about/FaqList";
+import AboutWebsite from "../components/about/AboutWebsite";
+import Helpdesk from "../components/about/Helpdesk";
 
 const Aboutus = () => {
   const [activeNavId, setActiveNavId] = useState(0); // Default selected tab
@@ -79,31 +17,32 @@ const Aboutus = () => {
   const renderContent = () => {
     switch (activeNavId) {
       case 0:
-        return renderUniversityDetails();
+        return <UniversityDetails />;
       case 1:
-        return renderDepartmentDetails();
+        return <DepartmentDetails DEPARTMENT_DETAILS={DEPARTMENT_DETAILS} />;
       case 2:
-        return renderWebsiteDetails();
-
+        return <Helpdesk />;
+      case 3:
+        return <FaqList ABOUT_FAQ_LIST={ABOUT_FAQ_LIST} />;
       case 4:
-        return renderAboutWebsite();
+        return <AboutWebsite />;
       default:
         return null;
     }
   };
 
   return (
-    <div className="flex flex-col">
-      <ul className="flex space-x-4 border-b-2 pb-2">
+    <div className="flex flex-col px-1  md:px-16 ">
+      <ul className="flex space-x-6 my-2 md:my-4 bg-[#3d3d3d]  md:bg-white text-white md:text-gray-700 overflow-x-scroll md:overflow-hidden">
         {ABOUT_US_NAV_ITEMS.map((item) => (
           <li
             key={item.navId}
             onClick={() => setActiveNavId(item.navId)}
-            className={`cursor-pointer text-lg font-semibold px-4 py-2 
+            className={`cursor-pointer text-lg text-white md:text-[#1d232a] font-semibold pl-2 py-2 
               ${
                 activeNavId === item.navId
                   ? "underline  decoration-2 decoration-[#3b82f6] underline-offset-4"
-                  : "text-gray-700 hover:text-[#4a4a4b]"
+                  : "text-gray-700 hover:text-warning md:hover:text-[#4a4a4b]"
               }`}
           >
             {item.navItem}

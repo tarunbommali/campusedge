@@ -3,7 +3,7 @@ import React from 'react'
 import {createBrowserRouter, Outlet} from 'react-router-dom'
 import Aboutus from './routes/Aboutus'
 import Home from './routes/Home'
-import Helpdesk from './routes/Helpdesk'
+import Helpdesk from './components/about/Helpdesk'
 
 import Header from './components/Header'
 import Footer from './components/Footer'

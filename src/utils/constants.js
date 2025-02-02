@@ -132,8 +132,42 @@ export const ABOUT_US_NAV_ITEMS = [
   { navItem: "Department", navId: 1 },
   { navItem: "Helpdesk", navId: 2 },
   { navItem: "FAQ'S", navId: 3 },
-  { navItem: "About Website", navId: 4 },
+  { navItem: "Website", navId: 4 },
 ];
+
+export const ABOUT_FAQ_LIST  = [
+  {
+    faqId: "faq-1",
+    question: "What is Campus Edge?",
+    answer: "Campus Edge is a platform designed to empower university students by providing roadmaps, resources, and connections to help build their careers.",
+  },
+  {
+    faqId: "faq-2",
+    question: "Who can benefit from Campus Edge?",
+    answer: "University students seeking guidance, resources, and networking opportunities to advance their careers can benefit from Campus Edge.",
+  },
+  {
+    faqId: "faq-3",
+    question: "What kind of resources does Campus Edge offer?",
+    answer: "Campus Edge offers various resources, including career roadmaps, learning materials, interview preparation tools, and AI-driven interview simulations.",
+  },
+  {
+    faqId: "faq-4",
+    question: "How can I access the AI Interview feature?",
+    answer: "You can access the AI Interview feature by navigating to the 'AI Interview' section on the Campus Edge website.",
+  },
+  {
+    faqId: "faq-5",
+    question: "Is Campus Edge free to use?",
+    answer: "Based on the available information, Campus Edge appears to be free for users. For more details, please visit the website.",
+  },
+  {
+    faqId: "faq-6",
+    question: "How can I contact Campus Edge for support?",
+    answer: "For support or inquiries, please refer to the 'Helpdesk' section on the Campus Edge website.",
+  },
+];
+
 
 export const DEPARTMENT_DETAILS = ["DEPARTMENT DETAILS"];
 

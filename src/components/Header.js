@@ -11,10 +11,12 @@ const Header = () => {
   };
 
   return (
-    <header className="px-6 py-4 bg-white shadow-md md:px-6 px-2">
+    <header className="px-6 py-4 bg-white shadow-md md:px-16 px-2">
       {/* Large Screen Menu */}
       <div className="hidden md:flex justify-between items-center">
-        <div className="text-xl font-bold text-gray-800">Campus Edge</div>
+        <a href="https://campusedge.vercel.app/" className="btn bg-white hover:bg-white outline-none  border-none text-xl font-thin text-[#2d2d2d]">
+          Campus Edge
+        </a>
         <ul className="flex space-x-6 text-gray-700">
           {NAV_ITEMS.map((item, index) => (
             <NavLink
@@ -32,7 +34,7 @@ const Header = () => {
 
       {/* Mobile Menu Button */}
       <div className="md:hidden flex justify-between items-center">
-        <div className="text-xl font-bold text-gray-800">Campus Edge</div>
+        <div className="text-xl font-bold text-[#111827]">Campus Edge</div>
         <button onClick={toggleMobileMenu} className="p-2 focus:outline-none">
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -103,7 +103,7 @@ const InterviewPrep = () => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full md:px-16">
       {/* If active domain is selected, render the domain view, otherwise render the home screen */}
       {activeSelectedDomain === null ? renderHomeScreen() : renderDomainView()}
     </div>

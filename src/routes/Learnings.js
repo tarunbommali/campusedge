@@ -24,7 +24,7 @@ const Learnings = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center  w-full px-2 md:px-20">
+    <div className="flex flex-col justify-center  w-full  md:px-20">
       {/* Filter Select Dropdown and Search Input */}
       <div className="flex flex-col  md:flex-row justify-between items-center text-md py-4 font-thin my-4 mb-2">
         {/* Search Input */}
