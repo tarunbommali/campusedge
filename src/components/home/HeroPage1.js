@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
-import { Shimmer } from 'react-shimmer';
+
 
 const HeroPage1 = () => {
   const [init, setInit] = useState(false);
@@ -63,16 +63,8 @@ const HeroPage1 = () => {
   );
 
   return (
-    <div className="relative w-full px-20 h-screen flex justify-center items-center bg-gray-900">
-      {/* Shimmer Effect Placeholder */}
-      {!init && (
-        <Shimmer
-          width="100%"
-          height="100%"
-          style={{ position: "absolute", top: 0, left: 0 }}
-        />
-      )}
-
+    <div className="relative">
+     <div className="px-20 h-screen flex justify-center items-center bg-gray-900">
       {/* Particle Background */}
       {init && (
         <Particles
@@ -84,7 +76,7 @@ const HeroPage1 = () => {
 
       {/* Text Overlay */}
       <div className="absolute select-none px-20 text-4xl md:text-6xl font-bold text-center mix-blend-screen">
-        <div className="hero flex items-center min-h-screen">
+        <div className="hero flex items-center px-20 min-h-screen">
           <div className="hero-content flex-col lg:flex-row-reverse">
             <img
               alt="hero_img"
@@ -98,6 +90,7 @@ const HeroPage1 = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

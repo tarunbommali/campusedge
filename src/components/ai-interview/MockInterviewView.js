@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { Button } from "../ui/layout";
+import { Button } from "../../ui/layout";
 import { AiFillAudio } from "react-icons/ai";
 import { FaRegStopCircle } from "react-icons/fa";
 import { ResultView } from "./AIMockResults";
@@ -109,8 +109,8 @@ const MockInterviewView = ({ questions = [], onSubmit }) => {
         {questions[currentIndex]?.answer || "No answer available"}
       </p>
 
-      <div className="flex justify-between items-center mt-6">
-        <div className="join">
+      <div className="flex flex-col md:flex-row justify-between items-center mt-6">
+        <div className="join my-1">
           {questions.map((_, index) => (
             <input
               key={index}
@@ -124,7 +124,7 @@ const MockInterviewView = ({ questions = [], onSubmit }) => {
           ))}
         </div>
         <div className="flex justify-center items-center">
-          <button className="btn btn-error text-white mx-2">
+          <button className="btn btn-error text-white my-1 mx-2">
             Exit Interview
           </button>
           {currentIndex === questions.length - 1 && (

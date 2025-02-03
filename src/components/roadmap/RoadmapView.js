@@ -16,12 +16,12 @@ export const RoadmapView = ({ setActiveRoadmapIndex, activeRoadmap, setActiveTab
     <div className="p-6 flex flex-col flex-grow">
       <h2 className="text-xl font-bold mb-4">{activeRoadmap.title}</h2>
 
-      <div className="flex mb-4">
+      <div className="flex overflow-x-scroll mb-4">
         {["technologies", "resources", "path", "hiring Companies"].map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`px-4 py-2 mx-1 font-semibold rounded ${
+            className={`px-4  mx-1 font-semibold rounded ${
               activeTab === tab ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-700"
             }`}
           >

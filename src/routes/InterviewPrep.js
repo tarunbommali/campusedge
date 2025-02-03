@@ -68,9 +68,9 @@ const InterviewPrep = () => {
   // Render content based on active tab
   const renderContent = () => {
     return (
-      <div className="md:w-3/4 px-2">
+      <div className="md:w-3/4 px-1 md:px-2">
         <div className="flex justify-between items-center px-2 py-1">
-          <div className="flex">
+          <div className="flex overflow-x-scroll md:overflow-hidden">
             {filterInterviewLevel.map((level, idx) => (
               <button
                 key={idx}

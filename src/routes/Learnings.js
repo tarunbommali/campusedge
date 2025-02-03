@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ResourceList from "../components/ResourceList";
+import ResourceList from "../components/learning/ResourceList";
 import { FilterOptions, resourcesList } from "../utils/resources";
 import { IoMdSearch } from "react-icons/io";
 

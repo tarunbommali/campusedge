@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ROADMAPS_LIST } from "../utils/roadmapConstants";
-import RoadmapContent from "../components/RoadmapContent";
-import RoadmapView from "../components/RoadmapView";
+import RoadmapContent from "../components/roadmap/RoadmapContent";
+import RoadmapView from "../components/roadmap/RoadmapView";
 
 
 const Roadmaps = () => {
@@ -36,6 +36,7 @@ const Roadmaps = () => {
       activeTab={activeTab}
       renderContent={() => <RoadmapContent activeRoadmap={activeRoadmap} activeTab={activeTab} />}
     />;
+    
 
   return (
     <div className="w-full md:px-16">

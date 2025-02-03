@@ -1,5 +1,5 @@
 import React from "react";
-import { CompaniesTypes } from "../utils/constants";
+import { CompaniesTypes } from "../../utils/constants";
 
 const HeroPage2 = () => {
   return (
