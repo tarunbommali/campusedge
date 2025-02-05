@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-
+import React from "react";
+import { useSelector } from "react-redux";
 import {
   ABOUT_JNTUGV,
   VISION_JNTUGV,
@@ -7,74 +7,56 @@ import {
 } from "../../utils/constants";
 
 const UniversityDetails = () => {
-  const [activeSlide, setActiveSlide] = useState(1);
+  const currentTheme = useSelector((state) => state.theme) || "light";
 
-  const handleNext = () => {
-    setActiveSlide((prev) => (prev === 3 ? 1 : prev + 1));
-  };
+  // Dynamic classes for the theme
+  const themeClasses =
+    currentTheme === "dark"
+      ? { bg: "bg-[#111827]", text: "text-white", btn: "btn-accent" }
+      : { bg: "bg-white", text: "text-gray-700", btn: "btn-primary" };
 
-  const handlePrev = () => {
-    setActiveSlide((prev) => (prev === 1 ? 3 : prev - 1));
-  };
+  const renderSection = (title, items, imgSrc, altText) => (
+    <div className={`hero ${themeClasses.bg} min-h-screen w-full max-w-5xl mx-auto`}>
+      <div className="hero-content flex-col lg:flex-row">
+        <img
+          alt={altText}
+          src={imgSrc}
+          className="w-64 h-64 rounded-lg shadow-2xl object-cover"
+        />
+        <div className="flex flex-col items-center">
+          <h1 className={`text-5xl font-bold ${themeClasses.text}`}>{title}</h1>
+          <ul className="list-disc pl-6 py-6 space-y-2">
+            {items.map((item, index) => (
+              <li key={index} className={`text-lg ${themeClasses.text}`}>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
-    <div className="carousel w-full">
-      <div
-        className={`carousel-item relative w-full ${
-          activeSlide === 1 ? "block" : "hidden"
-        }`}
-      >
-        <div className="px-6 py-4">
-          <h2 className="text-2xl font-semibold mb-4">About</h2>
-          <ul className="list-disc pl-6 space-y-2">
-            {ABOUT_JNTUGV.map((item, index) => (
-              <li key={index} className="text-lg text-gray-700">
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      <div
-        className={`carousel-item relative w-full ${
-          activeSlide === 2 ? "block" : "hidden"
-        }`}
-      >
-        <div className="px-6 py-4">
-          <h2 className="text-2xl font-semibold mb-4">Vision</h2>
-          <ul className="list-disc pl-6 space-y-2">
-            {VISION_JNTUGV.map((item, index) => (
-              <li key={index} className="text-lg text-gray-700">
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      <div
-        className={`carousel-item relative w-full ${
-          activeSlide === 3 ? "block" : "hidden"
-        }`}
-      >
-        <div className="px-6 py-4">
-          <h2 className="text-2xl font-semibold mb-4">Mission</h2>
-          <ul className="list-disc pl-6 space-y-2">
-            {MISSION_JNTUGV.map((item, index) => (
-              <li key={index} className="text-lg text-gray-700">
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-        <button onClick={handlePrev} className="btn btn-circle">
-          ❮
-        </button>
-        <button onClick={handleNext} className="btn btn-circle">
-          ❯
-        </button>
-      </div>
+    <div className="overflow-x-scroll min-h-full">
+      {renderSection(
+        "Mission",
+        MISSION_JNTUGV,
+        "https://thumbs.dreamstime.com/b/mission-icon-social-media-instagram-concept-business-goal-logo-isolated-white-background-eps-vector-mission-icon-179754614.jpg",
+        "mission"
+      )}
+      {renderSection(
+        "Vision",
+        VISION_JNTUGV,
+        "https://img.freepik.com/premium-vector/vision-logo-eye-icon-app-illustration_654297-176.jpg",
+        "vision"
+      )}
+      {renderSection(
+        "About",
+        ABOUT_JNTUGV,
+        "https://media.istockphoto.com/id/950039636/vector/about-us-flat-design-orange-round-vector-icon-in-eps-10.jpg?s=612x612&w=0&k=20&c=3eXs5SjFq4TWTIi7zoWifTn9q4xulmyB53dyuPP4ypg=",
+        "about"
+      )}
     </div>
   );
 };

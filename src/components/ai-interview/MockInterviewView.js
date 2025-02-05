@@ -3,8 +3,11 @@ import { Button } from "../../ui/layout";
 import { AiFillAudio } from "react-icons/ai";
 import { FaRegStopCircle } from "react-icons/fa";
 import { ResultView } from "./AIMockResults";
+import { useSelector } from "react-redux";
 
 const MockInterviewView = ({ questions = [], onSubmit }) => {
+  const currentTheme = useSelector((state) => state.theme) || 'light';
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState(
     Array(questions.length).fill("")
@@ -60,6 +63,7 @@ const MockInterviewView = ({ questions = [], onSubmit }) => {
     setSubmitted(true);
     onSubmit(userAnswers);
   };
+
   if (submitted) {
     return <ResultView questions={questions} userAnswers={userAnswers} />;
   }
@@ -68,8 +72,14 @@ const MockInterviewView = ({ questions = [], onSubmit }) => {
     return <p>Loading questions...</p>;
   }
 
+  // Define theme-based styles
+  const containerClass = currentTheme === "dark" ? "bg-gray-800 text-white" : "bg-white text-black";
+  const textAreaClass = currentTheme === "dark" ? "bg-gray-700 text-white" : "bg-white text-black";
+  const buttonClass = currentTheme === "dark" ? "bg-green-700 text-white" : "bg-green-500 text-white";
+  const errorClass = currentTheme === "dark" ? "text-red-400" : "text-red-500";
+
   return (
-    <div className="p-6 rounded-lg shadow-md bg-white my-6">
+    <div className={`p-6 rounded-lg shadow-md ${containerClass} my-6`}>
       <h2 className="text-xl font-semibold mb-4">
         {questions[currentIndex]?.question || "No question available"}
       </h2>
@@ -94,14 +104,15 @@ const MockInterviewView = ({ questions = [], onSubmit }) => {
         </label>
       </div>
 
-      {error && <p className="text-red-500 mt-2">{error}</p>}
+      {error && <p className={`${errorClass} mt-2`}>{error}</p>}
+
       <p className="mt-4">
         <strong>Your Answer:</strong>
       </p>
       <textarea
         readOnly
         value={userAnswers[currentIndex]}
-        className="w-full bg-white p-2 border rounded mt-2"
+        className={`w-full p-2 border rounded mt-2 ${textAreaClass}`}
       />
 
       <p className="text-sm text-gray-600 mt-2">
@@ -131,7 +142,7 @@ const MockInterviewView = ({ questions = [], onSubmit }) => {
             <Button
               type="submit"
               onClick={handleSubmit}
-              className="btn bg-green-500 text-white"
+              className={`btn ${buttonClass}`}
             >
               Submit Interview
             </Button>

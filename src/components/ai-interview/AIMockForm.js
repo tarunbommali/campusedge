@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { listVariants, itemVariants } from "../../utils/utilsMotions";
+import { useSelector } from "react-redux";
 
 const AIMockForm = ({
   onStart,
@@ -16,6 +17,8 @@ const AIMockForm = ({
   const [techStack, setTechStack] = useState("");
   const [newApiKey, setNewApiKey] = useState("");
   const [tempApiKey, setTempApiKey] = useState("");
+
+  const currentTheme = useSelector((state) => state.theme) || "light";
 
   const CampusEdgeAPI = process.env.REACT_APP_GEMINI_API_KEY;
 
@@ -36,11 +39,21 @@ const AIMockForm = ({
     setTempApiKey(CampusEdgeAPI);
   };
 
+  // Dynamic class names for light/dark theme
+  const formClass =
+    currentTheme === "dark" ? "bg-[#111827] text-white" : "bg-white text-black";
+  const inputClass =
+    currentTheme === "dark" ? "bg-gray-700 text-white" : "bg-white text-black";
+  const buttonClass =
+    currentTheme === "dark" ? "btn-neutral-dark" : "btn-neutral-light"; // Example class, modify as per your theme setup
+
   return (
-    <div className="p-6 rounded-lg shadow-md bg-white my-6">
+    <div className={`p-6 rounded-lg shadow-md  min-h-full ${formClass}`}>
       <h2 className="text-xl font-semibold mb-4">Enter Job Details</h2>
       <form onSubmit={handleSubmit}>
-        <label className="input input-bordered bg-white my-1 flex items-center gap-2">
+        <label
+          className={`input input-bordered ${inputClass} my-1 flex items-center gap-2`}
+        >
           <input
             type="text"
             className="grow"
@@ -50,7 +63,9 @@ const AIMockForm = ({
           />
         </label>
 
-        <label className="input input-bordered bg-white my-1 flex items-center gap-2">
+        <label
+          className={`input input-bordered ${inputClass} my-1 flex items-center gap-2`}
+        >
           <input
             type="text"
             className="grow"
@@ -60,7 +75,9 @@ const AIMockForm = ({
           />
         </label>
 
-        <label className="input input-bordered bg-white my-1 flex items-center gap-2">
+        <label
+          className={`input input-bordered ${inputClass} my-1 flex items-center gap-2`}
+        >
           <input
             type="text"
             className="grow"
@@ -70,9 +87,13 @@ const AIMockForm = ({
           />
         </label>
 
-        <label className="textarea textarea-bordered p-1 bg-white my-2 flex items-center gap-2">
+        <label
+          className={`textarea textarea-bordered ${inputClass} p-1 my-2 flex items-center gap-2`}
+        >
           <textarea
-            className="grow bg-white my-1 outline-none"
+            className={`grow outline-none ${
+              currentTheme === "dark" ? "bg-[#374151]" : "bg-[#FFFFFF]"
+            }`}
             placeholder="Job Description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
@@ -81,7 +102,9 @@ const AIMockForm = ({
 
         {!apiKey && !tempApiKey && (
           <div className="mb-4">
-            <label className="input input-bordered bg-white flex items-center gap-2">
+            <label
+              className={`input input-bordered ${inputClass} flex items-center gap-2`}
+            >
               <input
                 type="text"
                 className="grow"
@@ -97,13 +120,13 @@ const AIMockForm = ({
               <button
                 type="button"
                 onClick={handleApiSave}
-                className="btn btn-primary mt-2 mr-2"
+                className={`btn ${buttonClass} mt-2 mr-2`}
               >
                 Save API Key
               </button>
               <button
                 type="button"
-                className="btn btn-primary mt-2"
+                className={`btn ${buttonClass} mt-2`}
                 onClick={handleUseCampusEdge}
               >
                 Use CampusEdge API
@@ -115,13 +138,16 @@ const AIMockForm = ({
         {(apiKey || tempApiKey) && (
           <div className="my-2">
             <div className="text-sm text-gray-600">
-              Using API Key: {`${(apiKey || tempApiKey).slice(0, 3)}****${(apiKey || tempApiKey).slice(-3)}`}
+              Using API Key:{" "}
+              {`${(apiKey || tempApiKey).slice(0, 3)}****${(
+                apiKey || tempApiKey
+              ).slice(-3)}`}
             </div>
             {apiKey ? (
               <button
                 type="button"
                 onClick={onRemoveApiKey}
-                className="btn btn-warning text-white my-2"
+                className={`btn btn-warning text-white my-2`}
               >
                 Remove API Key
               </button>
@@ -129,7 +155,7 @@ const AIMockForm = ({
               <button
                 type="button"
                 onClick={() => setTempApiKey("")}
-                className="btn btn-warning text-white my-2"
+                className={`btn btn-warning text-white my-2`}
               >
                 Remove Temporary API Key
               </button>
@@ -137,7 +163,7 @@ const AIMockForm = ({
           </div>
         )}
 
-        <button type="submit" className="btn btn-neutral text-white my-6">
+        <button type="submit" className={`btn btn-neutral text-white my-6`}>
           {loading ? (
             <motion.div variants={listVariants} className="flex items-center">
               <span className="loading loading-dots loading-lg"></span>

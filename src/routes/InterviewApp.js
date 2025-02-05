@@ -2,6 +2,7 @@ import { useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import AIMockForm from "../components/ai-interview/AIMockForm";
 import MockInterviewView from "../components/ai-interview/MockInterviewView";
+import { useSelector } from "react-redux";
 
 const InterviewApp = () => {
   const [questions, setQuestions] = useState([]);
@@ -9,6 +10,23 @@ const InterviewApp = () => {
   const [apiError, setApiError] = useState("");
   const [apiKey, setApiKey] = useState(localStorage.getItem("GEMINI_API_KEY") || "");
   const [tempApiKey, setTempApiKey] = useState("");
+
+  const currentTheme = useSelector((state) => state.theme) || "light";
+
+  // Theme-based styling
+  const themeClasses = currentTheme === "dark"
+    ? {
+        container: "bg-gray-900 text-white",
+        formContainer: "bg-gray-800 text-gray-300",
+        errorContainer: "text-red-400",
+        button: "bg-blue-500 hover:bg-blue-700 text-white",
+      }
+    : {
+        container: "bg-white text-gray-800",
+        formContainer: "bg-gray-100 text-gray-700",
+        errorContainer: "text-red-600",
+        button: "bg-blue-500 hover:bg-blue-700 text-white",
+      };
 
   const isValidApiKey = (key) => {
     const apiKeyPattern = /^AIza[0-9A-Za-z_-]{35}$/;
@@ -77,23 +95,34 @@ const InterviewApp = () => {
   };
 
   return (
-    <div className="md:px-16">
+    <div className={`md:px-16  min-h-full ${themeClasses.container}`}>
+      {apiError && (
+        <div className={`mt-4 ${themeClasses.errorContainer}`}>
+          <p>{apiError}</p>
+        </div>
+      )}
+
       {questions.length === 0 ? (
-        <AIMockForm 
-          onStart={handleStartInterview} 
-          loading={loading} 
-          apiError={apiError} 
-          onSaveApiKey={saveApiKey} 
-          onRemoveApiKey={removeApiKey} 
-          apiKey={apiKey} 
-          onUseCampusEdgeAPI={handleUseCampusEdgeAPI}
-        />
+        <div className={`p-4 rounded-md ${themeClasses.formContainer}`}>
+          <AIMockForm 
+            onStart={handleStartInterview} 
+            loading={loading} 
+            apiError={apiError} 
+            onSaveApiKey={saveApiKey} 
+            onRemoveApiKey={removeApiKey} 
+            apiKey={apiKey} 
+            onUseCampusEdgeAPI={handleUseCampusEdgeAPI}
+            buttonClass={themeClasses.button}
+          />
+        </div>
       ) : (
-        <MockInterviewView
-          questions={questions}
-          length={questions.length}
-          onSubmit={handleSubmit}
-        />
+        <div className={`p-4 rounded-md ${themeClasses.formContainer}`}>
+          <MockInterviewView
+            questions={questions}
+            length={questions.length}
+            onSubmit={handleSubmit}
+          />
+        </div>
       )}
     </div>
   );

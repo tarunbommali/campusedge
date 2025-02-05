@@ -1,5 +1,6 @@
 import React from "react";
 import AIQuestionsResult from "./AIQuestionsResult";
+import { useSelector } from "react-redux";
 
 export const ResultView = ({ questions, userAnswers }) => {
   // Function to calculate the percentage for each criterion
@@ -16,6 +17,8 @@ export const ResultView = ({ questions, userAnswers }) => {
       confidence,
     };
   };
+
+  const currentTheme = useSelector((state) => state.theme) || 'light';
 
   // Dummy functions for evaluation criteria (replace with actual logic)
   const calculateAccuracy = (user, correct) => {
@@ -57,17 +60,22 @@ export const ResultView = ({ questions, userAnswers }) => {
     );
   };
 
+  // Dynamic class names for light/dark theme
+  const containerClass = currentTheme === "dark" ? "bg-gray-800 text-white" : "bg-white text-black";
+  const buttonClass = currentTheme === "dark" ? "bg-gray-700 hover:bg-black hover:text-white text-white" : "bg-gray-100 hover:bg-black hover:text-white text-black";
+  const headerClass = currentTheme === "dark" ? "text-white" : "text-black";
+  
   return (
-    <div className="p-6 rounded-lg shadow-md bg-white my-6">
-      <div className="flex flex-col lg:flex-row justify-between items-center bg-gray-50 mb-4 p-4 rounded">
-        <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-center lg:text-left mb-4 lg:mb-0">
+    <div className={`p-6 rounded-lg shadow-md my-6 ${containerClass}`}>
+      <div className={`flex flex-col lg:flex-row justify-between items-center bg-gray-50 mb-4 p-4 rounded ${currentTheme === "dark" ? "bg-gray-700" : "bg-gray-50"}`}>
+        <h2 className={`text-xl sm:text-2xl lg:text-3xl font-semibold text-center lg:text-left mb-4 lg:mb-0 ${headerClass}`}>
           Mock Interview Results
         </h2>
         <div className="flex flex-wrap justify-center lg:justify-end items-center">
-          <button className="mx-2 bg-gray-100 border border-gray-300 px-4 py-2 rounded hover:bg-black hover:text-white text-sm sm:text-base lg:text-lg">
+          <button className={`mx-2 ${buttonClass} px-4 py-2 rounded text-sm sm:text-base lg:text-lg`}>
             Take New Mock
           </button>
-          <button className="mx-2 bg-gray-100 border border-gray-300 px-4 py-2 rounded hover:bg-black hover:text-white text-sm sm:text-base lg:text-lg">
+          <button className={`mx-2 ${buttonClass} px-4 py-2 rounded text-sm sm:text-base lg:text-lg`}>
             Next Questions
           </button>
         </div>
