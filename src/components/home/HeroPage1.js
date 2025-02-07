@@ -63,12 +63,11 @@ const HeroPage1 = () => {
     [currentTheme]
   );
 
-  // Theme based class names
+  // Theme-based class names
   const containerClass = currentTheme === 'dark' ? 'bg-gray-900 text-white' : 'bg-white text-black';
-  const overlayTextClass = currentTheme === 'dark' ? 'text-white' : 'text-black';
   const heroContentClass = currentTheme === 'dark' ? 'text-left text-white' : 'text-left text-black';
   const textClass = currentTheme === 'dark' ? 'text-white' : 'text-black';
-
+  const imageBgClass = currentTheme === 'dark' ? 'bg-gray-900' : 'bg-[#fefefe]'; 
   return (
     <div className="relative">
       <div className={`px-20 h-screen flex justify-center items-center ${containerClass}`}>
@@ -76,23 +75,28 @@ const HeroPage1 = () => {
         {init && (
           <Particles
             id="tsparticles"
-            className="absolute inset-0 z-0"  // Set a lower z-index for particles
+            className="absolute inset-0 z-0"
             options={options}
           />
         )}
 
         {/* Text Overlay */}
-        <div className={`absolute select-none px-20 text-4xl md:text-6xl font-bold text-center mix-blend-screen z-10 ${overlayTextClass}`}>
+        <div className="absolute select-none px-20 text-4xl md:text-6xl font-bold text-center z-10">
           <div className="hero flex items-center px-20 min-h-screen">
             <div className="hero-content flex-col lg:flex-row-reverse">
-              <img
-                alt="hero_img"
-                src="https://img.freepik.com/premium-photo/3d-rendering-robot-artificial-intelligence-black-background-futuristic-technology-robot_844516-420.jpg"
-                className="max-w-sm rounded-lg shadow-2xl"
-              />
+              {/* Apply background to ensure image visibility */}
+              <div className={`p-4 rounded-lg shadow-xl ${imageBgClass}`}>
+                <img
+                  alt="hero_img"
+                  src="https://img.freepik.com/premium-photo/3d-rendering-robot-artificial-intelligence-black-background-futuristic-technology-robot_844516-420.jpg"
+                  className="max-w-sm rounded-lg"
+                />
+              </div>
               <div className={`flex flex-col ${heroContentClass}`}>
-                <h1 className={`${textClass}text-5xl font-bold`}>Information Technology</h1>
-                <p className={`${textClass}text-5xl font-bold py-6`}>Excellence in Knowledge & Innovation</p>
+                <h1 className={`${textClass} text-5xl font-bold`}>Information Technology</h1>
+                <p className={`${textClass} text-5xl font-bold py-6`}>
+                  Excellence in Knowledge & Innovation
+                </p>
               </div>
             </div>
           </div>
@@ -103,3 +107,5 @@ const HeroPage1 = () => {
 };
 
 export default HeroPage1;
+
+ 

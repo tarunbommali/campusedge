@@ -4,6 +4,7 @@ import HeroPage2 from "../components/home/HeroPage2";
 import HeroPage3 from "../components/home/HeroPage3";
 import { useSelector } from "react-redux";
 
+
 const Home = () => {
   const currentTheme = useSelector((state) => state.theme) || "light";
 
@@ -29,6 +30,9 @@ const Home = () => {
       </div>
       <div className={themeClasses.heroPage}>
         <HeroPage2 />
+      </div>
+      <div className={themeClasses.heroPage}>
+        
       </div>
     </div>
   );

@@ -17,11 +17,11 @@ const UniversityDetails = () => {
 
   const renderSection = (title, items, imgSrc, altText) => (
     <div className={`hero ${themeClasses.bg} min-h-screen w-full max-w-5xl mx-auto`}>
-      <div className="hero-content flex-col lg:flex-row">
+      <div className="hero-content flex-col flex flex-start">
         <img
           alt={altText}
           src={imgSrc}
-          className="w-64 h-64 rounded-lg shadow-2xl object-cover"
+          className="w-64 h-64 lg:w-40 lg:h-40 items-start rounded-lg shadow-2xl object-cover"
         />
         <div className="flex flex-col items-center">
           <h1 className={`text-5xl font-bold ${themeClasses.text}`}>{title}</h1>

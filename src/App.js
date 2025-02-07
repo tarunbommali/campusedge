@@ -1,15 +1,19 @@
-import React from 'react';
-import { createBrowserRouter, Outlet } from 'react-router-dom';
-import Aboutus from './routes/Aboutus';
-import Home from './routes/Home';
-import Helpdesk from './components/about/Helpdesk';
-import Header from './components/global/Header';
-import Footer from './components/global/Footer';
-import Roadmaps from './routes/Roadmaps';
-import Learnings from './routes/Learnings';
-import InterviewPrep from './routes/InterviewPrep';
-import InterviewApp from './routes/InterviewApp';
-import { useSelector } from 'react-redux';
+import React, { lazy, Suspense } from "react";
+import { createBrowserRouter, Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Analytics } from "@vercel/analytics/react";
+import Header from "./components/global/Header";
+import Footer from "./components/global/Footer";
+import SuspenseLoading from "./components/global/SuspenseLoading";
+
+// Lazy Load Routes
+const Home = lazy(() => import("./routes/Home"));
+const Aboutus = lazy(() => import("./routes/Aboutus"));
+const Roadmaps = lazy(() => import("./routes/Roadmaps"));
+const Helpdesk = lazy(() => import("./components/about/Helpdesk"));
+const Learnings = lazy(() => import("./routes/Learnings"));
+const InterviewPrep = lazy(() => import("./routes/InterviewPrep"));
+const InterviewApp = lazy(() => import("./routes/InterviewApp"));
 
 const AppLayout = () => {
   const currentTheme = useSelector((state) => state.theme) || "light";
@@ -23,8 +27,11 @@ const AppLayout = () => {
       </header>
 
       {/* Content Section with padding to avoid overlap */}
-      <main className="flex-1 mt-16"> {/* mt-16 matches header height */}
-        <Outlet />
+      <main className={`flex-1 mt-16 ${bg_color}` }>
+        <Suspense fallback={<SuspenseLoading />}>
+          <Outlet />
+        </Suspense>
+        <Analytics />
       </main>
 
       {/* Footer */}
@@ -38,13 +45,62 @@ export const appRouter = createBrowserRouter([
     path: "/",
     element: <AppLayout />,
     children: [
-      { path: "/", element: <Home /> },
-      { path: "/about-us", element: <Aboutus /> },
-      { path: "/roadmaps", element: <Roadmaps /> },
-      { path: "/helpdesk", element: <Helpdesk /> },
-      { path: "/learnings", element: <Learnings /> },
-      { path: "/interviewPrep", element: <InterviewPrep /> },
-      { path: "/ai-interview", element: <InterviewApp /> },
+      {
+        path: "/",
+        element: (
+          <Suspense fallback={<SuspenseLoading />}>
+            <Home />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/about-us",
+        element: (
+          <Suspense fallback={<SuspenseLoading />}>
+            <Aboutus />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/roadmaps",
+        element: (
+          <Suspense fallback={<SuspenseLoading />}>
+            <Roadmaps />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/helpdesk",
+        element: (
+          <Suspense fallback={<SuspenseLoading />}>
+            <Helpdesk />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/learnings",
+        element: (
+          <Suspense fallback={<SuspenseLoading />}>
+            <Learnings />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/interviewPrep",
+        element: (
+          <Suspense fallback={<SuspenseLoading />}>
+            <InterviewPrep />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/ai-interview",
+        element: (
+          <Suspense fallback={<SuspenseLoading />}>
+            <InterviewApp />
+          </Suspense>
+        ),
+      },
     ],
   },
 ]);

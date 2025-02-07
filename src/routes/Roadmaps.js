@@ -3,7 +3,7 @@ import { ROADMAPS_LIST } from "../utils/roadmapConstants";
 import RoadmapContent from "../components/roadmap/RoadmapContent";
 import RoadmapView from "../components/roadmap/RoadmapView";
 import { useSelector } from "react-redux";
-
+ 
 const Roadmaps = () => {
   const [activeRoadmapIndex, setActiveRoadmapIndex] = useState(null);
   const [activeTab, setActiveTab] = useState("technologies");
@@ -55,6 +55,7 @@ const Roadmaps = () => {
 
   return (
     <div className={`w-full md:px-16 min-h-full ${themeClasses.container}`}>
+      
       {activeRoadmapIndex === null ? renderHomeScreen() : renderRoadmapView()}
     </div>
   );

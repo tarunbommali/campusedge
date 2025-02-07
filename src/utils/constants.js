@@ -1,3 +1,9 @@
+import { IoSchoolOutline as UNIVERSITY_LOGO } from "react-icons/io5";
+import { MdGroups as DEPARTMENT_LOGO } from "react-icons/md";
+import { FaHandsHelping as HELPDESK_LOGO } from "react-icons/fa";
+import { FaChrome as WEBSITE_LOGO } from "react-icons/fa6";
+import { FaQuestion as FAQ_LOGO } from "react-icons/fa";
+
 export const NAV_ITEMS = [
   { path: "/", link: "Home" },
   { path: "/roadmaps", link: "Roadmaps" },
@@ -134,32 +140,28 @@ export const MISSION_JNTUGV = [
 export const ABOUT_US_NAV_ITEMS = [
   {
     navItem: "University",
-    logo_url:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD08JTNRDJFg7NqbKmawe5ggm3Zxv803RwW8ac0BV0e00_AByC3XPJB5dMAKdp_d5fDKo&usqp=CAU",
+    logo_url: UNIVERSITY_LOGO,
     navId: 0,
   },
   {
     navItem: "Department",
-    logo_url:
-      "https://thumbs.dreamstime.com/b/d-simple-group-user-icon-isolated-render-profile-photo-symbol-ui-avatar-sign-human-management-hr-business-team-person-people-310050918.jpg",
+    logo_url: DEPARTMENT_LOGO,
     navId: 1,
   },
   {
     navItem: "Helpdesk",
-    logo_url:
-      "https://static.vecteezy.com/system/resources/previews/006/446/198/non_2x/customer-support-gradient-linear-icon-call-center-help-desk-client-assistance-online-shopping-thin-line-color-symbol-modern-style-pictogram-isolated-outline-drawing-vector.jpg",
+    logo_url: HELPDESK_LOGO,
     navId: 2,
   },
   {
     navItem: "FAQ'S",
-    logo_url:
-      "https://cdn.vectorstock.com/i/500p/84/81/faq-chat-bubble-ask-dialog-web-icon-vector-23828481.jpg",
+    logo_url: FAQ_LOGO,
     navId: 3,
   },
   {
     navItem: "Website",
-    logo_url:
-      "https://png.pngtree.com/png-vector/20240115/ourmid/pngtree-blue-website-icon-vector-png-image_11438142.png",
+
+    logo_url: WEBSITE_LOGO,
     navId: 4,
   },
 ];

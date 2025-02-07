@@ -2,6 +2,7 @@ import { useState } from "react";
 import { InterviewPrepList, filterInterviewLevel } from "../utils/interviewPrepData";
 import { useSelector } from "react-redux";
 
+
 const InterviewPrep = () => {
   const [activeSelectedDomain, setActiveSelectedDomain] = useState(null); // Track the selected domain
   const [activeTab, setActiveTab] = useState(0); // Default to first domain (0 index)
@@ -14,7 +15,7 @@ const InterviewPrep = () => {
   const themeClasses = currentTheme === "dark"
     ? {
         container: "bg-gray-900 text-white",
-        button: "bg-gray-800 hover:bg-blue-600 text-white",
+        button: "bg-gray-800 border-[#373a3d] hover:bg-blue-600 text-white",
         buttonActive: "bg-blue-500 text-white",
         breadcrumbs: "bg-[#111827] text-gray-300",
         levelButton: "border-gray-600 hover:bg-gray-700 text-gray-200",
@@ -54,7 +55,7 @@ const InterviewPrep = () => {
               setActiveSelectedDomain(index); // Select the domain
               setActiveTab(index); // Set the active tab to the selected domain's index
             }}
-            className={`p-4 border rounded-lg shadow-md hover:text-white transition ${themeClasses.button}`}
+            className={`p-4 border  rounded-lg shadow-md hover:text-white transition ${themeClasses.button}`}
           >
             {domain.title}
           </button>
@@ -130,7 +131,6 @@ const InterviewPrep = () => {
 
   return (
     <div className="w-full md:px-16">
-      {/* If active domain is selected, render the domain view, otherwise render the home screen */}
       {activeSelectedDomain === null ? renderHomeScreen() : renderDomainView()}
     </div>
   );

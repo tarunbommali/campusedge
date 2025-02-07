@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { listVariants, itemVariants } from "../../utils/utilsMotions";
 import { useSelector } from "react-redux";
 
 const AIMockForm = ({
   onStart,
-  loading,
   apiError,
   onSaveApiKey,
   onRemoveApiKey,
@@ -164,16 +161,7 @@ const AIMockForm = ({
         )}
 
         <button type="submit" className={`btn btn-neutral text-white my-6`}>
-          {loading ? (
-            <motion.div variants={listVariants} className="flex items-center">
-              <span className="loading loading-dots loading-lg"></span>
-              <motion.p variants={itemVariants} className="ml-2">
-                AI Magic Happening!
-              </motion.p>
-            </motion.div>
-          ) : (
-            "Start Mock Interview"
-          )}
+            Start Mock Interview
         </button>
       </form>
     </div>
