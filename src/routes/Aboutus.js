@@ -52,7 +52,7 @@ const Aboutus = () => {
   return (
     <div className={`relative flex flex-col ${themeClasses.bg} min-h-screen md:px-20`}>
       {/* SubHeader Section */}
-      <div className="navbar bg-base-100 w-full">
+      <div className="navbar bg-base-100 w-full overflow-x-scroll">
         <SubHeader
           ABOUT_US_NAV_ITEMS={ABOUT_US_NAV_ITEMS}
           activeNavId={activeNavId}
@@ -63,7 +63,7 @@ const Aboutus = () => {
 
       {/* Content Section */}
       <div className="flex-1 p-4 md:pl-16 overflow-y-auto">
-        <div className={`mt-4 pr-40 ${themeClasses.content}`}>
+        <div className={`mt-4 ${themeClasses.content}`}>
           {renderContent()}
         </div>
       </div>

@@ -16,18 +16,18 @@ const UniversityDetails = () => {
       : { bg: "bg-white", text: "text-gray-700", btn: "btn-primary" };
 
   const renderSection = (title, items, imgSrc, altText) => (
-    <div className={`hero ${themeClasses.bg} min-h-screen w-full max-w-5xl mx-auto`}>
+    <div className={`hero ${themeClasses.bg}  w-full md:max-w-5xl mx-auto`}>
       <div className="hero-content flex-col flex flex-start">
         <img
           alt={altText}
           src={imgSrc}
-          className="w-64 h-64 lg:w-40 lg:h-40 items-start rounded-lg shadow-2xl object-cover"
+          className="md:w-64 md:h-64 w-20 h-20 items-start rounded-lg shadow-2xl object-cover"
         />
         <div className="flex flex-col items-center">
-          <h1 className={`text-5xl font-bold ${themeClasses.text}`}>{title}</h1>
-          <ul className="list-disc pl-6 py-6 space-y-2">
+          <h1 className={`text-lg md:text-5xl font-bold ${themeClasses.text}`}>{title}</h1>
+          <ul className="list-disc md:pl-6 md:py-6 md:space-y-2">
             {items.map((item, index) => (
-              <li key={index} className={`text-lg ${themeClasses.text}`}>
+              <li key={index} className={`text-sm ${themeClasses.text}`}>
                 {item}
               </li>
             ))}

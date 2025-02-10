@@ -20,8 +20,8 @@ const InterviewApp = () => {
   const themeClasses =
     currentTheme === "dark"
       ? {
-          container: "bg-gray-900 text-white",
-          formContainer: "bg-gray-800 text-gray-300",
+          container: "bg-[#111827] text-white",
+          formContainer: "bg-[#111827] text-gray-300",
           errorContainer: "text-red-400",
           button: "bg-blue-500 hover:bg-blue-700 text-white",
         }
@@ -114,8 +114,7 @@ const InterviewApp = () => {
   };
 
   return (
-    <div className={`md:px-16  min-h-full ${themeClasses.container}`}>
-      
+    <div className={`md:px-16  min-h-[100vh] md:my-8 ${themeClasses.container}`}>
       {apiError && (
         <div className={`mt-4 ${themeClasses.errorContainer}`}>
           <p>{apiError}</p>
@@ -125,17 +124,17 @@ const InterviewApp = () => {
       {questions.length === 0 ? (
         <div className={`p-4 rounded-md ${themeClasses.formContainer}`}>
           {loading ? (
-            <Loading/>
+            <Loading />
           ) : (
-            <AIMockForm
-              onStart={handleStartInterview}
-              apiError={apiError}
-              onSaveApiKey={saveApiKey}
-              onRemoveApiKey={removeApiKey}
-              apiKey={apiKey}
-              onUseCampusEdgeAPI={handleUseCampusEdgeAPI}
-              buttonClass={themeClasses.button}
-            />
+               <AIMockForm
+                onStart={handleStartInterview}
+                apiError={apiError}
+                onSaveApiKey={saveApiKey}
+                onRemoveApiKey={removeApiKey}
+                apiKey={apiKey}
+                onUseCampusEdgeAPI={handleUseCampusEdgeAPI}
+                buttonClass={themeClasses.button}
+              />
           )}
         </div>
       ) : (
