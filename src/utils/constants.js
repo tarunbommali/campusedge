@@ -13,6 +13,14 @@ export const NAV_ITEMS = [
   { path: "/about-us", link: "About Us" },
 ];
 
+export const HEROPAGE1_HERO_IMG_URL = "https://img.freepik.com/premium-photo/3d-rendering-robot-artificial-intelligence-black-background-futuristic-technology-robot_844516-420.jpg"
+
+export const DISCORD_JOIN_URL = "https://discord.gg/wK74BpThkJ";
+export const HEROPAGE3_BG_IMG_URL = "https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp";
+export const DISCORD_LOGO_WHITE_THEME = "https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0b5493894cf60b300587_full_logo_white_RGB.svg";
+export const DISCORD_LOGO_BLACK_THEME = "https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0b5061df290f5892d944_full_logo_black_RGB.svg";
+
+
 export const CompaniesTypes = [
   {
     id: 1,

@@ -1,35 +1,38 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { accordionData } from "../../utils/accordionData";
 import { jobTitleAndDescriptionList } from "../../utils/jobTitleAndDescriptionList";
 
-const AIMockForm = ({ onStart, apiError, onSaveApiKey, onRemoveApiKey, apiKey }) => {
-  const [jobRole, setJobRole] = useState(""); 
+const AIMockForm = ({ onStart, onSaveApiKey, onRemoveApiKey, apiError, apiKey }) => {
+  const [jobRole, setJobRole] = useState("");
   const [description, setDescription] = useState("");
   const [newApiKey, setNewApiKey] = useState("");
   const [tempApiKey, setTempApiKey] = useState("");
+
   const currentTheme = useSelector((state) => state.theme) || "light";
-  const [openIndex, setOpenIndex] = useState(null);
-
-  const toggleAccordion = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
   const CampusEdgeAPI = process.env.REACT_APP_GEMINI_API_KEY;
 
+  // Form submission handler
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!jobRole || !description) return;
+
+    if (!jobRole.trim() || !description.trim()) {
+      alert("Please enter a job role and description.");
+      return;
+    }
     onStart({ jobRole, description });
   };
 
+  // Save API key
   const handleApiSave = () => {
-    if (newApiKey) {
-      onSaveApiKey(newApiKey);
-      setNewApiKey("");
+    if (!newApiKey.trim()) {
+      alert("Please enter a valid API key.");
+      return;
     }
+    onSaveApiKey(newApiKey);
+    setNewApiKey("");
   };
 
+  // Use default Campus Edge API key
   const handleUseCampusEdge = () => {
     setTempApiKey(CampusEdgeAPI);
   };
@@ -47,6 +50,7 @@ const AIMockForm = ({ onStart, apiError, onSaveApiKey, onRemoveApiKey, apiKey })
         <p className="text-lg md:text-2xl mt-2 font-extralight">
           Elevate your preparation and gain a competitive edge with the power of AI.
         </p>
+
         <div className="flex flex-col mt-10">
           {(apiKey || tempApiKey) && (
             <div className="my-2">
@@ -87,15 +91,6 @@ const AIMockForm = ({ onStart, apiError, onSaveApiKey, onRemoveApiKey, apiKey })
             </div>
           )}
         </div>
-
-        {accordionData.map((item, index) => (
-          <div key={index} className="collapse collapse-arrow w-full md:w-1/3 bg-base-200 my-2">
-            <button className="w-full text-left p-3 font-medium" onClick={() => toggleAccordion(index)}>
-              {item.title}
-            </button>
-            {openIndex === index && <div className="collapse-content p-3">{item.content}</div>}
-          </div>
-        ))}
       </div>
 
       <div className={`p-6 rounded-lg shadow-md min-h-full w-full md:w-1/2 ${formClass}`}>

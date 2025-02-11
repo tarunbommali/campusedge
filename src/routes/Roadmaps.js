@@ -54,7 +54,7 @@ const Roadmaps = () => {
     />;
 
   return (
-    <div className={`w-full md:px-16 min-h-full ${themeClasses.container}`}>
+    <div className={`w-full md:px-16 min-h-[100vh] ${themeClasses.container}`}>
       
       {activeRoadmapIndex === null ? renderHomeScreen() : renderRoadmapView()}
     </div>

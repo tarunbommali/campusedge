@@ -15,6 +15,8 @@ const InterviewApp = () => {
   const [tempApiKey, setTempApiKey] = useState("");
 
   const currentTheme = useSelector((state) => state.theme) || "light";
+  console.log("tempApiKey:", tempApiKey);
+  console.log("user_api:", apiKey);
 
   // Theme-based styling
   const themeClasses =
@@ -54,12 +56,7 @@ const InterviewApp = () => {
     setApiKey("");
   };
 
-  const handleStartInterview = async ({
-    jobRole,
-    company,
-    description,
-    techStack,
-  }) => {
+  const handleStartInterview = async ({ jobRole, description }) => {
     const activeApiKey = tempApiKey || apiKey;
 
     if (!activeApiKey) {
@@ -79,9 +76,7 @@ const InterviewApp = () => {
 
     const genAI = new GoogleGenerativeAI(activeApiKey);
     const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp" });
-    const prompt = `Generate 5 technical interview questions and answers for a ${jobRole} position at ${
-      company || "a company"
-    }. Focus on ${techStack}. Format as JSON.`;
+    const prompt = `Generate 5 technical interview questions and answers for a ${jobRole} position at a company.Focus on ${description}. Format as JSON.`;
 
     try {
       const chat = model.startChat();
@@ -92,6 +87,7 @@ const InterviewApp = () => {
         ? JSON.parse(jsonArrayMatch[0])
         : [];
       setQuestions(cleanedResponse);
+      console.log(responseText);
     } catch (error) {
       if (error.message.includes("API key not valid")) {
         setApiError("API key not valid. Please enter a valid API key.");
@@ -114,7 +110,9 @@ const InterviewApp = () => {
   };
 
   return (
-    <div className={`md:px-16  min-h-[100vh] md:my-8 ${themeClasses.container}`}>
+    <div
+      className={`md:px-16  min-h-[100vh] md:my-8 ${themeClasses.container}`}
+    >
       {apiError && (
         <div className={`mt-4 ${themeClasses.errorContainer}`}>
           <p>{apiError}</p>
@@ -126,15 +124,15 @@ const InterviewApp = () => {
           {loading ? (
             <Loading />
           ) : (
-               <AIMockForm
-                onStart={handleStartInterview}
-                apiError={apiError}
-                onSaveApiKey={saveApiKey}
-                onRemoveApiKey={removeApiKey}
-                apiKey={apiKey}
-                onUseCampusEdgeAPI={handleUseCampusEdgeAPI}
-                buttonClass={themeClasses.button}
-              />
+            <AIMockForm
+              onStart={handleStartInterview}
+              apiError={apiError}
+              onSaveApiKey={saveApiKey}
+              onRemoveApiKey={removeApiKey}
+              apiKey={apiKey}
+              onUseCampusEdgeAPI={handleUseCampusEdgeAPI}
+              buttonClass={themeClasses.button}
+            />
           )}
         </div>
       ) : (

@@ -50,9 +50,9 @@ const Aboutus = () => {
   };
 
   return (
-    <div className={`relative flex flex-col ${themeClasses.bg} min-h-screen md:px-20`}>
+    <div className={`relative flex flex-col w-full ${themeClasses.bg} min-h-screen`}>
       {/* SubHeader Section */}
-      <div className="navbar bg-base-100 w-full overflow-x-scroll">
+      <div className={`flex flex-row  items-center md:mt-3 bg-[#282a35] w-[100%]   overflow-x-scroll lg:overflow-hidden`}>
         <SubHeader
           ABOUT_US_NAV_ITEMS={ABOUT_US_NAV_ITEMS}
           activeNavId={activeNavId}

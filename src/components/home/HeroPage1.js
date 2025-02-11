@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import { useSelector } from "react-redux";
+import { HEROPAGE1_HERO_IMG_URL } from "../../utils/constants";
 
 const HeroPage1 = () => {
   const [init, setInit] = useState(false);
@@ -67,8 +68,7 @@ const HeroPage1 = () => {
   const containerClass = currentTheme === 'dark' ? 'bg-gray-900 text-white' : 'bg-white text-black';
   const heroContentClass = currentTheme === 'dark' ? 'text-left text-white' : 'text-left text-black';
   const textClass = currentTheme === 'dark' ? 'text-white' : 'text-black';
-  const imageBgClass = currentTheme === 'dark' ? 'bg-gray-900' : 'bg-[#fefefe]'; 
-  return (
+   return (
     <div className="relative">
       <div className={`px-20 h-screen flex justify-center items-center ${containerClass}`}>
         {/* Particle Background */}
@@ -85,16 +85,16 @@ const HeroPage1 = () => {
           <div className="hero flex items-center px-20 min-h-screen">
             <div className="hero-content flex-col lg:flex-row-reverse">
               {/* Apply background to ensure image visibility */}
-              <div className={`p-4 rounded-lg shadow-xl ${imageBgClass}`}>
+              <div className={`p-4 rounded-lg shadow-xl`}>
                 <img
                   alt="hero_img"
-                  src="https://img.freepik.com/premium-photo/3d-rendering-robot-artificial-intelligence-black-background-futuristic-technology-robot_844516-420.jpg"
-                  className="max-w-sm rounded-lg"
+                  src={HEROPAGE1_HERO_IMG_URL}
+                  className="max-w-sm rounded-lg mix-blend-screen"
                 />
               </div>
               <div className={`flex flex-col ${heroContentClass}`}>
-                <h1 className={`${textClass} text-5xl font-bold`}>Information Technology</h1>
-                <p className={`${textClass} text-5xl font-bold py-6`}>
+                <h1 className={`${textClass} text-3xl text-center md:text-5xl font-bold`}>Information Technology</h1>
+                <p className={`${textClass} text-xl text-center text-4xl font-bold py-6 mx-8 md:mx-0`}>
                   Excellence in Knowledge & Innovation
                 </p>
               </div>

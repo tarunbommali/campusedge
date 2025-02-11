@@ -1,6 +1,13 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React from "react";
 import { useSelector } from "react-redux";
+import {
+  DISCORD_JOIN_URL,
+  DISCORD_LOGO_BLACK_THEME,
+  DISCORD_LOGO_WHITE_THEME,
+  HEROPAGE3_BG_IMG_URL,
+  
+} from "../../utils/constants";
 
 const HeroPage3 = () => {
   const currentTheme = useSelector((state) => state.theme) || "light";
@@ -14,45 +21,71 @@ const HeroPage3 = () => {
     currentTheme === "dark"
       ? "hero-overlay bg-opacity-80"
       : "hero-overlay bg-opacity-60";
-  const cardClass =
+  
+  const discordImgUrl =
     currentTheme === "dark"
-      ? "card bg-neutral text-neutral-content"
-      : "card bg-white text-black";
-  const cardBodyClass =
-    currentTheme === "dark" ? "card-body text-white" : "card-body text-black";
-  const btnClass =
-    currentTheme === "dark"
-      ? "btn btn-primary text-white"
-      : "btn btn-primary text-black";
-  const dicordImgUrl =
-    currentTheme === "dark"
-      ? "https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0b5493894cf60b300587_full_logo_white_RGB.svg"
-      : "https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0b5061df290f5892d944_full_logo_black_RGB.svg";
+      ? DISCORD_LOGO_WHITE_THEME
+      : DISCORD_LOGO_BLACK_THEME;
+
   return (
     <div
       className={heroClass}
       style={{
-        backgroundImage:
-          "url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp)",
+        backgroundImage: `url(${HEROPAGE3_BG_IMG_URL})`,
       }}
     >
       <div className={overlayClass}></div>
-      <div className="hero-content text-center">
-        <div className="max-w-md">
-          <div className={`card w-96 ${cardClass}`}>
-            <div className={`items-center text-center ${cardBodyClass}`}>
-              <img alt="logo" src={dicordImgUrl} className="w-40 h-30" />
-
-              <div className="card-actions justify-end">
-                <a
-                  href="https://discord.gg/Ptuvsvs2"
-                  target="_blank"
-                  className={btnClass}
-                >
-                  Join Community
-                </a>
-              </div>
-            </div>
+      <div className="hero min-h-screen">
+        <div className="hero-content flex-col lg:flex-row">
+          <img
+            src={discordImgUrl}
+            className="max-w-sm w-1/5 mx-4 rounded-lg shadow-2xl"
+            alt="Discord Logo"
+          />
+          <div>
+            <h1 className="text-lg md:text-xl font-bold">
+              Why Join the Campus Edge Discord Community?
+            </h1>
+            <ul className="space-y-4 text-gray-300 py-6">
+              <li className="flex items-start gap-3">
+                <span className="text-blue-400 text-xl">🚀</span>
+                <p>
+                  <strong>Stay Active & Engage –</strong> Connect with IT
+                  professionals, ask questions, and grow together.
+                </p>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-blue-400 text-xl">💡</span>
+                <p>
+                  <strong>Learn by Helping –</strong> Solve others' issues and
+                  discover new insights along the way.
+                </p>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-blue-400 text-xl">👥</span>
+                <p>
+                  <strong>Build Connections –</strong> Make new friends and
+                  network with professionals.
+                </p>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-blue-400 text-xl">🎙️</span>
+                <p>
+                  <strong>Voice Channels & Collaboration –</strong> Join
+                  discussions and collaborate in real time.
+                </p>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-blue-400 text-xl">🌟</span>
+                <p>
+                  <strong>Become a Better Developer –</strong> Enhance
+                  problem-solving skills and grow as a developer.
+                </p>
+              </li>
+            </ul>
+            <a href={DISCORD_JOIN_URL} className="btn btn-secondary text-white">
+              JOIN NOW
+            </a>
           </div>
         </div>
       </div>
