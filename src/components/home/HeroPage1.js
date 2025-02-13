@@ -3,6 +3,9 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import { useSelector } from "react-redux";
 import { HEROPAGE1_HERO_IMG_URL } from "../../utils/constants";
+import Spline from '@splinetool/react-spline';
+
+ 
 
 const HeroPage1 = () => {
   const [init, setInit] = useState(false);
@@ -85,11 +88,14 @@ const HeroPage1 = () => {
           <div className="hero flex items-center px-20 min-h-screen">
             <div className="hero-content flex-col lg:flex-row-reverse">
               {/* Apply background to ensure image visibility */}
-              <div className={`p-4 rounded-lg shadow-xl`}>
+              <div className={`p-4 rounded-lg `}>
+                <div className="hidden md:block w-1/8">
+              <Spline scene="https://prod.spline.design/5hSnYUWPhsiowxpC/scene.splinecode" />
+              </div>
                 <img
                   alt="hero_img"
                   src={HEROPAGE1_HERO_IMG_URL}
-                  className="max-w-sm rounded-lg mix-blend-screen"
+                  className="block md:hidden  max-w-sm rounded-lg mix-blend-screen"
                 />
               </div>
               <div className={`flex flex-col ${heroContentClass}`}>

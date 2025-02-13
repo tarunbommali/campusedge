@@ -13,117 +13,118 @@ export const NAV_ITEMS = [
   { path: "/about-us", link: "About Us" },
 ];
 
-export const HEROPAGE1_HERO_IMG_URL = "https://img.freepik.com/premium-photo/3d-rendering-robot-artificial-intelligence-black-background-futuristic-technology-robot_844516-420.jpg"
-
+export const HEROPAGE1_HERO_IMG_URL =
+  "https://res.cloudinary.com/drdgj0pch/image/upload/v1739424010/HEROPAGE1_HERO_IMG_CAMPUS_EDGE.png";
 export const DISCORD_JOIN_URL = "https://discord.gg/wK74BpThkJ";
-export const HEROPAGE3_BG_IMG_URL = "https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp";
-export const DISCORD_LOGO_WHITE_THEME = "https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0b5493894cf60b300587_full_logo_white_RGB.svg";
-export const DISCORD_LOGO_BLACK_THEME = "https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0b5061df290f5892d944_full_logo_black_RGB.svg";
+export const HEROPAGE3_BG_IMG_URL =
+  "https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp";
+export const DISCORD_LOGO_WHITE_THEME =
+  "https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0b5493894cf60b300587_full_logo_white_RGB.svg";
+export const DISCORD_LOGO_BLACK_THEME =
+  "https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0b5061df290f5892d944_full_logo_black_RGB.svg";
 
+export const AI_TOOLS = [
+  {
+    "AI Tool Name": "ChatGPT",
+    "Use For": "AI Writing",
+    "Free Version": "Unlimited",
+    website: "https://chat.openai.com/",
+    icon: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg",
+  },
+  {
+    "AI Tool Name": "Grammarly",
+    "Use For": "Grammar and Editing",
+    "Free Version": "300 docs or 150k words/month",
+    website: "https://www.grammarly.com/",
+    icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcc-4w3ZxZ4GkRUL-ZZ5U3PxywWaao0RitWg&s",
+  },
+  {
+    "AI Tool Name": "Quillbot",
+    "Use For": "Paraphrasing",
+    "Free Version": "125 words at a time",
+    website : "https://www.quillbot.com/",
+    icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ3u9AU0nhlfTXJTnwWNgJks69gCNHXMUWCQ&s",
+  },
+  {
+    "AI Tool Name": "Google Gemini",
+    "Use For": "Research",
+    "Free Version": "Unlimited",
+    website: "https://gemini.google.com/",
+    icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG0Q8TM6IFSGz_drBLLzVR8xv2RNyFvy3FVA&s",
+  },
+  {
+    "AI Tool Name": "ChatPDF",
+    "Use For": "Research",
+    "Free Version": "3 PDFs and 50 Questions/day",
+    website: "https://www.chatpdf.com/",
+    icon: "https://www.chatpdf.com/favicon.ico",
+  },
+  {
+    "AI Tool Name": "Natural Readers",
+    "Use For": "Text to Speech",
+    "Free Version": "4k characters per day",
+    website: "https://www.naturalreaders.com/",
+    icon: "https://www.naturalreaders.com/favicon.ico",
+  },
+  {
+    "AI Tool Name": "Mubert",
+    "Use For": "Text to Music",
+    "Free Version": "25 tracks/month",
+    website: "https://mubert.com/",
+    icon: "https://mubert.com/favicon.ico",
+  },
+ 
+  {
+    "AI Tool Name": "Tutor AI",
+    "Use For": "Learning",
+    "Free Version": "3 queries/month",
+    website: "https://tutorai.me/",
+    icon: "https://tutorai.me/favicon.ico",
+  },
+  {
+    "AI Tool Name": "AskCodi",
+    "Use For": "Coding",
+    "Free Version": "50 credits/month",
+    website: "https://askcodi.com/",
+    icon: "https://askcodi.com/favicon.ico",
+  },
+  {
+    "AI Tool Name": "Kickresume",
+    "Use For": "Resume Building",
+    "Free Version": "No downloads",
+    website: "https://www.kickresume.com/",
+    icon: "https://www.kickresume.com/favicon.ico",
+  },
+ 
+  {
+    "AI Tool Name": "Replika",
+    "Use For": "Personal Assistance",
+    "Free Version": "Unlimited chat",
+    website: "https://replika.ai/",
+    icon: "https://replika.ai/favicon.ico",
+  },
+  {
+    "AI Tool Name": "ElevenLabs",
+    "Use For": "AI Voice Generation",
+    "Free Version": "10k characters/month",
+    website: "https://elevenlabs.io/",
+    icon: "https://elevenlabs.io/favicon.ico",
+  },
+ 
+  {
+    "AI Tool Name": "Otter AI",
+    "Use For": "Meeting transcription and summary",
+    "Free Version": "300 transcription mins/month",
+    website: "https://otter.ai/",
+    icon: "https://otter.ai/favicon.ico",
+  },
 
-export const CompaniesTypes = [
   {
-    id: 1,
-    label: "MNCs",
-    description: "Multinational",
-    path: "/companies/mncs",
-    content:
-      "Companies that operate in multiple countries and have a large global presence.",
-  },
-  {
-    id: 2,
-    label: "Startups",
-    description: "Innovative early-stage",
-    path: "/companies/startups",
-    content: "Early-stage companies focusing on innovation and rapid growth.",
-  },
-  {
-    id: 3,
-    label: "Product-Based",
-    description: "Companies developing and selling their software products",
-    path: "/companies/product-based",
-    content: "Companies that develop and sell their own software products.",
-  },
-  {
-    id: 4,
-    label: "Service-Based",
-    description: "Companies providing IT services to clients",
-    path: "/companies/service-based",
-    content:
-      "Companies that provide IT services to clients (e.g., software development, testing, consulting).",
-  },
-  {
-    id: 5,
-    label: "FinTech",
-    description: "Companies focusing on financial technology innovation",
-    path: "/companies/fintech",
-    content:
-      "Companies that leverage technology to provide financial services.",
-  },
-  {
-    id: 6,
-    label: "EdTech",
-    description: "Companies revolutionizing education using technology",
-    path: "/companies/edtech",
-    content:
-      "Companies that use technology to revolutionize education and learning.",
-  },
-  {
-    id: 7,
-    label: "E-Commerce",
-    description:
-      "Online retail platforms for buying and selling goods/services",
-    path: "/companies/e-commerce",
-    content:
-      "Companies that operate platforms for buying and selling goods/services online.",
-  },
-  {
-    id: 8,
-    label: "Gaming",
-    description: "Companies specializing in video game development",
-    path: "/companies/gaming",
-    content:
-      "Companies that develop video games, VR/AR applications, and gamification solutions.",
-  },
-  {
-    id: 9,
-    label: "Cloud-Based",
-    description: "Companies offering cloud infrastructure and solutions",
-    path: "/companies/cloud-based",
-    content:
-      "Companies offering cloud infrastructure, platforms, and software solutions.",
-  },
-  {
-    id: 10,
-    label: "Cybersecurity",
-    description: "Companies focused on securing digital assets",
-    path: "/companies/cybersecurity",
-    content:
-      "Companies specializing in securing digital assets and infrastructure.",
-  },
-  {
-    id: 11,
-    label: "AI and ML",
-    description:
-      "Companies leveraging artificial intelligence and machine learning",
-    path: "/companies/ai-ml",
-    content:
-      "Companies that leverage artificial intelligence and machine learning technologies.",
-  },
-  {
-    id: 12,
-    label: "HealthTech",
-    description: "Companies improving healthcare solutions using technology",
-    path: "/companies/healthtech",
-    content: "Companies using technology to improve healthcare solutions.",
-  },
-  {
-    id: 13,
-    label: "Logistics and Supply Chain",
-    description: "Companies optimizing supply chains using technology",
-    path: "/companies/logistics",
-    content:
-      "Companies optimizing logistics and supply chain through technology.",
+    "AI Tool Name": "Gamma AI",
+    "Use For": "AI Presentation",
+    "Free Version": "400 AI credits",
+    website: "https://gamma.app/",
+    icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDRVr9QYTxtd8eXUP34HZLoEnTNMKG1ffIAg&s",
   },
 ];
 

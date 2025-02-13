@@ -28,7 +28,7 @@ const Home = () => {
       <div className={themeClasses.heroPage}>
         <HeroPage3 />
       </div>
-      <div className={themeClasses.heroPage}>
+      <div className={`${themeClasses.heroPage} `}>
         <HeroPage2 />
       </div>
       <div className={themeClasses.heroPage}>
