@@ -10,11 +10,12 @@ import FaqList from "../components/about/FaqList";
 import AboutWebsite from "../components/about/AboutWebsite";
 import Helpdesk from "../components/about/Helpdesk";
 import { useSelector } from "react-redux";
-import {SubHeader} from "../components/global/SubHeader";
+import { SubHeader } from "../components/global/SubHeader";
 
 const Aboutus = () => {
   const [activeNavId, setActiveNavId] = useState(0); // Default selected tab
   const currentTheme = useSelector((state) => state.theme) || "light";
+  const isDarkMode = currentTheme === "dark";
 
   // Theme-based classes
   const themeClasses =
@@ -50,9 +51,20 @@ const Aboutus = () => {
   };
 
   return (
-    <div className={`relative flex flex-col w-full ${themeClasses.bg} min-h-screen`}>
+    <div
+      className={`relative flex flex-col w-full ${themeClasses.bg} min-h-screen`}
+    >
       {/* SubHeader Section */}
-      <div className={`flex flex-row  items-center md:mt-3 bg-[#282a35] w-[100%]   overflow-x-scroll lg:overflow-hidden`}>
+      <div
+        className={`flex flex-row items-center py-1 w-[100%] overflow-x-scroll lg:overflow-hidden transition-all duration-300 
+        ${
+          isDarkMode
+            ? "bg-[#1e1f29] text-gray-300"
+            : "bg-[#f8f9fa] text-gray-700"
+        }
+      `}
+      >
+        {" "}
         <SubHeader
           ABOUT_US_NAV_ITEMS={ABOUT_US_NAV_ITEMS}
           activeNavId={activeNavId}
@@ -63,9 +75,7 @@ const Aboutus = () => {
 
       {/* Content Section */}
       <div className="flex-1 p-4 md:pl-16 overflow-y-auto">
-        <div className={`mt-4 ${themeClasses.content}`}>
-          {renderContent()}
-        </div>
+        <div className={`mt-4 ${themeClasses.content}`}>{renderContent()}</div>
       </div>
     </div>
   );

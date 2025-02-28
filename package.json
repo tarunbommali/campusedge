@@ -19,6 +19,7 @@
     "campus-edge": "file:",
     "dotenv": "^16.4.7",
     "lottie-react": "^2.4.1",
+    "lucide-react": "^0.476.0",
     "motion": "^12.0.8",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
