@@ -1,79 +1,145 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { IoMdArrowRoundBack } from "react-icons/io";
 
-export const RoadmapView = ({
-  setActiveRoadmapIndex,
-  activeRoadmap,
-  setActiveTab,
-  activeTab,
-  renderContent,
-}) => {
-  const currentTheme = useSelector((state) => state.theme) || "light";
+const RoadmapView = ({ jobRole, setSelectedRole }) => {
+  console.log({ jobRole }, "tarun");
 
-  // Dynamic theme-based classes
-  const themeClasses =
-    currentTheme === "dark"
-      ? {
-          bg: "bg-[#111827]",
-          text: "text-white",
-          tabActive: "bg-blue-500 text-white",
-          tabInactive: "bg-gray-600 text-gray-300",
-        }
-      : {
-          bg: "bg-gray-100",
-          text: "text-gray-700",
-          tabActive: "bg-blue-500 text-white",
-          tabInactive: "bg-gray-200 text-gray-700",
-        };
+  if (!jobRole) {
+    return <p className="text-center text-red-500">Job role not found.</p>;
+  }
 
   return (
-    <div className={`flex flex-col min-h-full ${themeClasses.bg}`}>
-      {/* Breadcrumbs for navigation */}
-      <div
-        className={`breadcrumbs w-full text-sm p-4 mt-2 md:mt-4 flex items-center ${themeClasses.bg}`}
-      >
-        <ul className="flex gap-2">
-          <li>
-            <button
-              onClick={() => setActiveRoadmapIndex(null)}
-              className="text-blue-500"
-            >
-              RoadMaps
-            </button>
-          </li>
-          <li className={`font-semibold ${themeClasses.text}`}>
-            {activeRoadmap.title}
-          </li>
+    <div className="p-6 max-w-4xl mx-auto space-y-6">
+      <div className="px-4 flex justify-between items-center">
+        <h1 className="text-2xl font-bold ">
+          {jobRole?.title || "No Title Available"}
+        </h1>
+        <button
+          onClick={() => setSelectedRole(null)}
+          className="text-xl p-2 bg-gray-200 dark:bg-gray-700 rounded-full"
+        >
+          <IoMdArrowRoundBack />
+        </button>
+      </div>
+
+      {/* Industry Outlook */}
+      <div className="p-4">
+        <h2 className="text-xl font-semibold">Industry Outlook</h2>
+        <p>
+          <strong>Demand:</strong>{" "}
+          {jobRole?.industryOutlook?.demand || "No data available"}
+        </p>
+        <p>
+          <strong>Key Skills:</strong>{" "}
+          {jobRole?.industryOutlook?.keySkills?.join(", ") ||
+            "No skills listed"}
+        </p>
+      </div>
+
+      {/* Salary Trends */}
+      <div className="p-4">
+        <h2 className="text-xl font-semibold">Salary Trends</h2>
+        {jobRole?.salaryTrends ? (
+          Object.entries(jobRole.salaryTrends).map(([year, range]) => (
+            <p key={year}>
+              {year}: ₹{range?.min || "N/A"} - ₹{range?.max || "N/A"} (Avg: ₹
+              {range?.avg || "N/A"})
+            </p>
+          ))
+        ) : (
+          <p>No salary data available</p>
+        )}
+      </div>
+
+      {/* Top Locations & Companies */}
+      <div className="p-4">
+        <h2 className="text-xl font-semibold">Top Locations & Companies</h2>
+        <p>
+          <strong>Top Locations:</strong>{" "}
+          {jobRole?.topLocationsAndCompanies?.topLocations?.join(", ") ||
+            "No data"}
+        </p>
+        <p>
+          <strong>Top Companies:</strong>{" "}
+          {jobRole?.topLocationsAndCompanies?.topCompanies?.join(", ") ||
+            "No data"}
+        </p>
+        <p>
+          <strong>Top Industries:</strong>{" "}
+          {jobRole?.topLocationsAndCompanies?.topIndustries?.join(", ") ||
+            "No data"}
+        </p>
+      </div>
+
+      {/* Technology Stacks */}
+      <div className="p-4">
+        <h2 className="text-xl font-semibold">Technology Stacks</h2>
+        {jobRole?.technologyStacks ? (
+          Object.entries(jobRole.technologyStacks).map(([category, stack]) => (
+            <p key={category}>
+              <strong>{category}:</strong>{" "}
+              {Array.isArray(stack) ? stack.join(", ") : "No data available"}
+            </p>
+          ))
+        ) : (
+          <p>No technology stacks available</p>
+        )}
+      </div>
+
+      {/* Learning Path */}
+      <div className="p-4">
+        <h2 className="text-xl font-semibold">Learning Path</h2>
+        <ul className="list-disc ml-6">
+          {jobRole?.learningPath?.length ? (
+            jobRole.learningPath.map((step, index) => (
+              <li key={index}>{step}</li>
+            ))
+          ) : (
+            <p>No learning path available</p>
+          )}
         </ul>
       </div>
 
-      {/* Title and Tabs */}
-      <div className={`p-6 flex flex-col flex-grow ${themeClasses.bg}`}>
-        <h2 className={`text-xl font-bold mb-4 ${themeClasses.text}`}>
-          {activeRoadmap.title}
-        </h2>
+      {/* Beginner Resources */}
+      <div className="p-4">
+        <h2 className="text-xl font-semibold">Beginner Resources</h2>
+        {jobRole?.beginnerResources?.length ? (
+          jobRole.beginnerResources.map((resource, index) => (
+            <p key={index}>
+              <a
+                href={resource.link}
+                className="text-blue-500 underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {resource.name} - {resource.type}
+              </a>
+            </p>
+          ))
+        ) : (
+          <p>No beginner resources available</p>
+        )}
+      </div>
 
-        <div className="flex overflow-x-scroll mb-4 md:text-md md:pr-2">
-  <ul className="menu bg-base-200 lg:menu-horizontal rounded-box">
-    {["technologies", "resources", "path", "hiring Companies"].map((tab) => (
-      <li key={tab}>
-        <button
-          onClick={() => setActiveTab(tab)}
-          className={`px-4 mx-1 font-semibold rounded ${
-            activeTab === tab ? themeClasses.tabActive : themeClasses.tabInactive
-          }`}
-        >
-          {tab.charAt(0).toUpperCase() + tab.slice(1)}
-         </button>
-      </li>
-    ))}
-  </ul>
-</div>
-
-        {/* Content at the bottom for small screens */}
-        <div className="flex-grow flex flex-col justify-end">
-          {renderContent()}
-        </div>
+      {/* Courses & Certifications */}
+      <div className="p-4">
+        <h2 className="text-xl font-semibold">Courses & Certifications</h2>
+        {jobRole?.coursesAndCertifications?.length ? (
+          jobRole.coursesAndCertifications.map((course, index) => (
+            <div key={index} className="mb-2">
+              <p>
+                <strong>{course?.name || "Unknown Course"}</strong> -{" "}
+                {course?.platform || "Unknown Platform"}
+              </p>
+              <p>
+                Features:{" "}
+                {course?.features?.join(", ") || "No features available"}
+              </p>
+            </div>
+          ))
+        ) : (
+          <p>No courses or certifications available</p>
+        )}
       </div>
     </div>
   );

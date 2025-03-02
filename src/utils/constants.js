@@ -14,10 +14,10 @@ export const NAV_ITEMS = [
 ];
 
 export const HEROPAGE1_HERO_IMG_URL =
-  "https://res.cloudinary.com/drdgj0pch/image/upload/v1739424010/HEROPAGE1_HERO_IMG_CAMPUS_EDGE.png";
+  "http://images.unsplash.com/photo-1634712079327-8b61ab4eb884?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 export const DISCORD_JOIN_URL = "https://discord.gg/wK74BpThkJ";
 export const HEROPAGE3_BG_IMG_URL =
-  "https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp";
+  "https://media.istockphoto.com/id/1320940021/vector/dotted-graph-seamless.jpg?s=612x612&w=0&k=20&c=iLzTFko48qH7PZfPzbjDAzOkn4EODXCztzgA4KI4ni8=";
 export const DISCORD_LOGO_WHITE_THEME =
   "https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0b5493894cf60b300587_full_logo_white_RGB.svg";
 export const DISCORD_LOGO_BLACK_THEME =

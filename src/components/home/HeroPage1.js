@@ -3,13 +3,10 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import { useSelector } from "react-redux";
 import { HEROPAGE1_HERO_IMG_URL } from "../../utils/constants";
-import Spline from '@splinetool/react-spline';
-
  
-
 const HeroPage1 = () => {
   const [init, setInit] = useState(false);
-  const currentTheme = useSelector((state) => state.theme) || 'light';
+  const currentTheme = useSelector((state) => state.theme) || "light";
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -41,9 +38,9 @@ const HeroPage1 = () => {
         },
       },
       particles: {
-        color: { value: currentTheme === 'dark' ? "#ffffff" : "#000000" },
+        color: { value: currentTheme === "dark" ? "#ffffff" : "#000000" },
         links: {
-          color: currentTheme === 'dark' ? "#ffffff" : "#000000",
+          color: currentTheme === "dark" ? "#ffffff" : "#000000",
           distance: 150,
           enable: true,
           opacity: 0.5,
@@ -68,12 +65,16 @@ const HeroPage1 = () => {
   );
 
   // Theme-based class names
-  const containerClass = currentTheme === 'dark' ? 'bg-gray-900 text-white' : 'bg-white text-black';
-  const heroContentClass = currentTheme === 'dark' ? 'text-left text-white' : 'text-left text-black';
-  const textClass = currentTheme === 'dark' ? 'text-white' : 'text-black';
-   return (
+  const containerClass =
+    currentTheme === "dark" ? "bg-gray-900 text-white" : "bg-white text-black";
+  const heroContentClass =
+    currentTheme === "dark" ? "text-left text-white" : "text-left text-black";
+  const textClass = currentTheme === "dark" ? "text-white" : "text-black";
+  return (
     <div className="relative">
-      <div className={`px-20 h-screen flex justify-center items-center ${containerClass}`}>
+      <div
+        className={`px-20 h-screen flex justify-center items-center ${containerClass}`}
+      >
         {/* Particle Background */}
         {init && (
           <Particles
@@ -89,18 +90,21 @@ const HeroPage1 = () => {
             <div className="hero-content flex-col lg:flex-row-reverse">
               {/* Apply background to ensure image visibility */}
               <div className={`p-4 rounded-lg `}>
-                <div className="hidden md:block w-1/8">
-              <Spline scene="https://prod.spline.design/5hSnYUWPhsiowxpC/scene.splinecode" />
-              </div>
                 <img
                   alt="hero_img"
                   src={HEROPAGE1_HERO_IMG_URL}
-                  className="block md:hidden  max-w-sm rounded-lg mix-blend-screen"
+                  className="block   max-w-sm rounded-lg mix-blend-screen"
                 />
               </div>
               <div className={`flex flex-col ${heroContentClass}`}>
-                <h1 className={`${textClass} text-3xl text-center md:text-5xl font-bold`}>Information Technology</h1>
-                <p className={`${textClass} text-xl text-center text-4xl font-bold py-6 mx-8 md:mx-0`}>
+                <h1
+                  className={`${textClass} text-3xl text-center md:text-5xl font-bold`}
+                >
+                  Information Technology
+                </h1>
+                <p
+                  className={`${textClass} text-xl text-center text-4xl font-bold py-6 mx-8 md:mx-0`}
+                >
                   Excellence in Knowledge & Innovation
                 </p>
               </div>
@@ -113,5 +117,3 @@ const HeroPage1 = () => {
 };
 
 export default HeroPage1;
-
- 

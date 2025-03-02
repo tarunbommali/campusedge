@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  expanded: true, // Sidebar is expanded by default
+  expanded: false,
 };
 
 const sidebarSlice = createSlice({
